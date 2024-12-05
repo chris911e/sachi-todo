@@ -57,7 +57,7 @@ jobs:
               if: success() || failure()
               with:
                 name: Sachi ToDo JEST Tests            
-                path: reports/jest-*.xml    
+                path: reports/junit.xml    
                 reporter: jest-junit        
       
 
