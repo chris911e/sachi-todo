@@ -148,6 +148,7 @@ const config = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   transform: {
     '^.+\\.(js|jsx)$': '@swc/jest',
+    '^.+\\.(css|scss|sass)$': 'jest-transform-css',
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
