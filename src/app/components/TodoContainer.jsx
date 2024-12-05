@@ -1,3 +1,6 @@
+'use client'
+
+import React from "react";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Header from "./Header";
@@ -6,14 +9,17 @@ import TodosList from "./TodosList";
 import styles from "./TodoContainer.module.css";
 
 const TodoContainer = () => {
+  const [todos, setTodos] = useState([]);
+
   const getInitialTodos = () => {
-    // getting stored items
     const temp = localStorage.getItem("todos");
     const savedTodos = JSON.parse(temp);
     return savedTodos || [];
   };
 
-  const [todos, setTodos] = useState(getInitialTodos());
+  useEffect(() => {
+    getInitialTodos()
+  }, []);
 
   const handleChange = (id) => {
     setTodos((prevState) =>
@@ -53,9 +59,8 @@ const TodoContainer = () => {
     );
   };
 
-  // componentDidUpdate
+  // storing todos items
   useEffect(() => {
-    // storing todos items
     const temp = JSON.stringify(todos);
     localStorage.setItem("todos", temp);
   }, [todos]);
