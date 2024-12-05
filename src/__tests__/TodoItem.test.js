@@ -36,7 +36,7 @@ test('calls handleChangeProps on checkbox change', () => {
 
 test('calls deleteTodoProps on delete button click', () => {
   const deleteTodoProps = jest.fn();
-  const { getByTestId } = render(
+  const { getByRole } = render(
     <TodoItem
       todo={todo}
       handleChangeProps={() => {}}
@@ -44,7 +44,7 @@ test('calls deleteTodoProps on delete button click', () => {
       setUpdate={() => {}}
     />
   );
-  fireEvent.click(getByTestId('delete-todo-btn'));
+  fireEvent.click(getByRole('button'));
   expect(deleteTodoProps).toHaveBeenCalledWith(1);
 });
 
@@ -62,5 +62,6 @@ test('enables editing on double click and updates title', () => {
   const inputElement = getByDisplayValue('Test Todo');
   expect(inputElement).toBeInTheDocument();
   fireEvent.change(inputElement, { target: { value: 'Updated Todo' } });
+  fireEvent.keyDown(inputElement, { key: 'Enter', code: 'Enter', which: 13 });
   expect(setUpdate).toHaveBeenCalledWith('Updated Todo', 1);
 });

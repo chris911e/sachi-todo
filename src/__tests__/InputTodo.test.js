@@ -17,17 +17,18 @@ test('updates input value on change', () => {
 
 test('calls addTodoProps on valid form submission', () => {
   const addTodoProps = jest.fn();
-  const { getByPlaceholderText, getByTestId } = render(<InputTodo addTodoProps={addTodoProps} />);
+  const { getByPlaceholderText } = render(<InputTodo addTodoProps={addTodoProps} />);
   const inputElement = getByPlaceholderText('Add todo...');
   fireEvent.change(inputElement, { target: { value: 'New Todo' } });
-  fireEvent.submit(getByTestId('todo-form'));
+  fireEvent.submit(inputElement.closest('form'));
   expect(addTodoProps).toHaveBeenCalledWith('New Todo');
   expect(inputElement.value).toBe('');
 });
 
 test('shows alert on empty form submission', () => {
   jest.spyOn(window, 'alert').mockImplementation(() => {});
-  const { getByTestId } = render(<InputTodo addTodoProps={() => {}} />);
-  fireEvent.submit(getByTestId('todo-form'));
+  const { getByPlaceholderText } = render(<InputTodo addTodoProps={() => {}} />);
+  const inputElement = getByPlaceholderText('Add todo...');
+  fireEvent.submit(inputElement.closest('form'));
   expect(window.alert).toHaveBeenCalledWith('Please write item');
 });
