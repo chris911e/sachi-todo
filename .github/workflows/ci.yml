@@ -1,0 +1,90 @@
+name: CI Pipeline (PR-Check)
+
+on:
+    push:
+        branches:
+            - '*'
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    setup-environment:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Cache Node.js modules
+              uses: actions/cache@v3
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                    ${{ runner.os }}-node-modules-
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: '18'
+
+            - name: Install Dependencies
+              run: npm install
+
+            - name: List directory (debugging)
+              run: ls
+
+    run-test:
+        runs-on: ubuntu-22.04
+        needs: setup-environment
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Cache Node.js modules (restore cache if available)
+              uses: actions/cache@v3
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                    ${{ runner.os }}-node-modules-
+
+            - name: Run Tests
+              run: npm run test
+
+    lint:
+        runs-on: ubuntu-22.04
+        needs: setup-environment
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Cache Node.js modules (restore cache if available)
+              uses: actions/cache@v3
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                    ${{ runner.os }}-node-modules-
+
+            - name: Lint application
+              run: npm run lint
+
+    build-app:
+        runs-on: ubuntu-22.04
+        needs: setup-environment
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Cache Node.js modules (restore cache if available)
+              uses: actions/cache@v3
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                    ${{ runner.os }}-node-modules-
+
+            - name: Build Application
+              run: npm run build
