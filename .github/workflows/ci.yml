@@ -11,7 +11,7 @@ on:
 
 jobs:
     setup-environment:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         steps:
             - name: Checkout code
               uses: actions/checkout@v2
@@ -36,7 +36,7 @@ jobs:
               run: ls
 
     run-test:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         needs: setup-environment
         steps:
             - name: Checkout code
@@ -46,7 +46,7 @@ jobs:
               run: npm run test
 
     lint:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         needs: setup-environment
         steps:
             - name: Checkout code
@@ -64,7 +64,7 @@ jobs:
               run: npm run lint
 
     build-app:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         needs: setup-environment
         steps:
             - name: Checkout code
