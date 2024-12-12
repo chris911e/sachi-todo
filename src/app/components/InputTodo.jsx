@@ -11,7 +11,7 @@ const InputTodo = (props) => {
     setInputText({
       ...inputText,
       [e.target.name]: e.target.value,
-    });
+    }); 
   };
 
   const handleSubmit = (e) => {
