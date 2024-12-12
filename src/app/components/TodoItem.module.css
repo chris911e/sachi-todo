@@ -14,7 +14,6 @@
   background: #f1f3f4;
   border: none;
   cursor: pointer;
-  float: right;
   outline: none;
   border-radius: 100px;
   height: 50px;
@@ -26,4 +25,9 @@
   width: 100%;
   padding: 10px;
   border: 1px solid #dfdfdf;
+}
+
+
+.todoItem {
+  width: fit-content;
 }

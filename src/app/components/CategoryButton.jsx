@@ -67,67 +67,87 @@ export default function CategoryButton(props) {
                         >
                             <div style={{
                                 display: "flex",
-                                justifyContent: "center"
+                                flexDirection: "column",
                             }}>
-                                {props.categories.length-1}/10 Categories
+                                <div style={{
+                                    textAlign: "center"
+                                }}>
+                                    {props.categories.length-1}/10 Categories
+                                </div>
+                                <div style={{
+                                    alignSelf: "center"
+                                }}>
+                                    <input
+                                        placeholder="Enter Category Name"
+                                        value={categoryName}
+                                        onChange={handleCategoryName}
+                                        style={{
+                                            margin: "10px",
+                                            padding: "10px"
+                                        }}
+                                        onKeyDown={handleCategoryEnter}
+                                        maxLength={15}
+                                    />
+                                    <button
+                                        style={{
+                                            cursor: "pointer",
+                                            margin: "10px",
+                                            padding: "10px"
+                                        }}
+                                        onClick={handleAddCategory}
+                                    >
+                                        Add
+                                    </button>
+                                </div>
                             </div>
-                            <input
-                                placeholder="Enter Category Name"
-                                value={categoryName}
-                                onChange={handleCategoryName}
-                                style={{
-                                    margin: "10px",
-                                    padding: "10px"
-                                }}
-                                onKeyDown={handleCategoryEnter}
-                            />
-                            <button
-                                style={{
-                                    cursor: "pointer",
-                                    margin: "10px",
-                                    padding: "10px"
-                                }}
-                                onClick={handleAddCategory}
-                            >
-                                Add
-                            </button>
                             <div style={{
                                 display: "flex",
                                 flexDirection: "column",
-                                gap: 15
+                                gap: 15,
+                                backgroundColor: "whitesmoke",
+                                padding: "15px",
+                                borderRadius: "10px"
                             }}>
                                 {
-                                    props.categories.map((category, key) => {
-                                        if(category === "Unkategorisiert") {
-                                            return
-                                        }
-                                        return (
-                                            <div 
-                                                key={key} 
-                                                style={{
-                                                    display: "flex",
-                                                    justifyContent: "space-between",
-                                                    width: "100%"
-                                                }}
-                                            >
-                                                <div>
-                                                    {category}
-                                                </div>
-                                                <button
-                                                    data-set="delete-todo-btn"
-                                                    onClick={() => props.deleteCategoryProp(category)}
+                                    props.categories.length > 1 ? (
+                                        props.categories.map((category, key) => {
+                                            if(category === "Unkategorisiert") {
+                                                return
+                                            }
+                                            return (
+                                                <div 
+                                                    key={key} 
                                                     style={{
-                                                        borderRadius: "10px",
-                                                        border: "none",
-                                                        padding: "5px",
-                                                        justifyContent: "flex-end"
+                                                        display: "flex",
+                                                        justifyContent: "space-between",
+                                                        width: "100%"
                                                     }}
                                                 >
-                                                    <FaTrash style={{ color: "orangered", fontSize: "16px", cursor: "pointer" }} />
-                                                </button>
-                                            </div>
-                                        )
-                                    })
+                                                    <div>
+                                                        {category}
+                                                    </div>
+                                                    <button
+                                                        data-set="delete-todo-btn"
+                                                        onClick={() => props.deleteCategoryProp(category)}
+                                                        style={{
+                                                            borderRadius: "10px",
+                                                            border: "none",
+                                                            padding: "5px",
+                                                            justifyContent: "flex-end"
+                                                        }}
+                                                    >
+                                                        <FaTrash style={{ color: "orangered", fontSize: "16px", cursor: "pointer" }} />
+                                                    </button>
+                                                </div>
+                                            )
+                                        })
+                                    ) : (
+                                        <div style={{
+                                            textAlign: "center"
+                                        }}>
+                                            No categories
+                                        </div>
+                                    )
                                 }
                             </div>
                         </div>

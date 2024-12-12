@@ -8,7 +8,8 @@ import InputTodo from "./InputTodo";
 import TodosList from "./TodosList";
 import styles from "./TodoContainer.module.css";
 import CategoryButton from "./CategoryButton";
-import TodoItem from "./TodoItem";
+import filter from "./assets/filter.svg"
+import Image from "next/image";
 
 const TodoContainer = () => {
   // test data
@@ -18,7 +19,7 @@ const TodoContainer = () => {
     "Personal",
     "Einkauf"
   ])
-  const [todos, setTodos] = useState([/*
+  const [todos, setTodos] = useState([
     {
       "id": "48793583-5ca1-483d-b189-e653515e8be2",
       "title": "todo 1",
@@ -37,7 +38,7 @@ const TodoContainer = () => {
       "completed": false,
       "category": "Arbeit"
     }
-  */]);
+  ]);
 
   const getInitialTodos = () => {
     const temp = localStorage.getItem("todos");
@@ -132,19 +133,28 @@ const TodoContainer = () => {
   return (
     <div style={{
       display: "flex",
-      justifyContent: "center",
+      justifyContent: "center"
     }}>
       <div style={{
         position: "relative",
         width: "50%"
       }}>
         <Header />
-        <CategoryButton 
-          addCategory={addCategory}
-          categories={categories}
-          deleteCategoryProp={delCategory}
-        />
-        <InputTodo addTodoProps={addTodoItem} />
+        <div style={{ display: "flex", justifyContent: "space-between", gap: 5, alignItems: "center" }}>
+          <button style={{
+            all: "unset",
+            cursor: "pointer"
+          }}>
+            <Image src={filter} alt="filter" height={32} width={32} />
+          </button>
+          <InputTodo addTodoProps={addTodoItem} />
+          <CategoryButton
+            addCategory={addCategory}
+            categories={categories}
+            deleteCategoryProp={delCategory}
+          />
+        </div>
+        <hr style={{ margin: "10px 0", border: "1px solid #ccc" }} />
         <TodosList
           todos={todos}
           handleChangeProps={handleChange}
