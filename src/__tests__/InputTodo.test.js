@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, getByTestId } from '@testing-library/react';
 import InputTodo from '@/app/components/InputTodo';
 
 describe('Input Todo tests', () => {
@@ -18,11 +18,15 @@ describe('Input Todo tests', () => {
       
       test('calls addTodoProps on valid form submission', () => {
         const addTodoProps = jest.fn();
-        const { getByPlaceholderText } = render(<InputTodo addTodoProps={addTodoProps} />);
+        const { getByPlaceholderText, getByTestId } = render(<InputTodo addTodoProps={addTodoProps} />);
         const inputElement = getByPlaceholderText('Add todo...');
+        const dateElement = getByTestId('expiration');
+        const date = '2006-02-15'; // Use the correct date format
+
         fireEvent.change(inputElement, { target: { value: 'New Todo' } });
+        fireEvent.change(dateElement, { target: { value:  date} });
         fireEvent.submit(inputElement.closest('form'));
-        expect(addTodoProps).toHaveBeenCalledWith('New Todo');
+        expect(addTodoProps).toHaveBeenCalledWith('New Todo', date);
         expect(inputElement.value).toBe('');
       });
       

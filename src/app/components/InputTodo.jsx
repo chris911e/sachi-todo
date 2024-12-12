@@ -47,6 +47,7 @@ const InputTodo = (props) => {
         className="input-text"
         value={todoInput.expiration}
         name="expiration"
+        data-testid="expiration"
         onChange={onChange}
       />
       <button data-set="add-todo-btn" className="input-submit">
