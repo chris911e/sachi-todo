@@ -3,23 +3,25 @@ import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 
 const InputTodo = (props) => {
-  const [inputText, setInputText] = useState({
+  const [todoInput, setToDoInput] = useState({
     title: "",
+    expiration: new Date(),
   });
 
   const onChange = (e) => {
-    setInputText({
-      ...inputText,
+    setToDoInput({
+      ...todoInput,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputText.title.trim()) {
-      props.addTodoProps(inputText.title);
-      setInputText({
+    if (todoInput.title.trim()) {
+      props.addTodoProps(todoInput.title, todoInput.expiration);
+      setToDoInput({
         title: "",
+        expiration: new Date(),
       });
     } else {
       alert("Please write item");
@@ -36,8 +38,15 @@ const InputTodo = (props) => {
         type="text"
         className="input-text"
         placeholder="Add todo..."
-        value={inputText.title}
+        value={todoInput.title}
         name="title"
+        onChange={onChange}
+      />
+      <input
+        type="date"
+        className="input-text"
+        value={todoInput.expiration}
+        name="expiration"
         onChange={onChange}
       />
       <button data-set="add-todo-btn" className="input-submit">

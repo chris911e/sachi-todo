@@ -39,11 +39,12 @@ const TodoContainer = () => {
     setTodos([...todos.filter((todo) => todo.id !== id)]);
   };
 
-  const addTodoItem = (title) => {
+  const addTodoItem = (title, date) => {
     const newTodo = {
       id: uuidv4(),
-      title,
+      title: title,
       completed: false,
+      expiration: date   
     };
     setTodos([...todos, newTodo]);
   };

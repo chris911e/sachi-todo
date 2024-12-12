@@ -23,7 +23,7 @@ const TodoItem = (props) => {
     textDecoration: "line-through",
   };
 
-  const { completed, id, title } = props.todo;
+  const { completed, id, title, expiration } = props.todo;
 
   const viewMode = {};
   const editMode = {};
@@ -69,6 +69,7 @@ const TodoItem = (props) => {
         }}
         onKeyDown={handleUpdatedDone}
       />
+      <p>{expiration}</p>
     </li>
   );
 };
