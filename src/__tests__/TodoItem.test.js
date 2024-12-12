@@ -6,7 +6,15 @@ const todo = {
   id: 1,
   title: 'Test Todo',
   completed: false,
+  category: "Unkategorisiert"
 };
+
+const categories = [
+  "Unkategorisiert",
+  "Arbeit",
+  "Personal",
+  "Einkauf"
+]
 
 describe('ToDo Item tests', () => { 
     test('renders TodoItem component', () => {
@@ -16,6 +24,9 @@ describe('ToDo Item tests', () => {
             handleChangeProps={() => {}}
             deleteTodoProps={() => {}}
             setUpdate={() => {}}
+            selectedCategory={todo.category}
+            categories={categories}
+            handleToDoCategoryChange={() => {}}
           />
         );
         expect(getByText('Test Todo')).toBeInTheDocument();
@@ -29,6 +40,9 @@ describe('ToDo Item tests', () => {
             handleChangeProps={handleChangeProps}
             deleteTodoProps={() => {}}
             setUpdate={() => {}}
+            selectedCategory={todo.category}
+            categories={categories}
+            handleToDoCategoryChange={() => {}}
           />
         );
         fireEvent.click(getByRole('checkbox'));
@@ -43,6 +57,9 @@ describe('ToDo Item tests', () => {
             handleChangeProps={() => {}}
             deleteTodoProps={deleteTodoProps}
             setUpdate={() => {}}
+            selectedCategory={todo.category}
+            categories={categories}
+            handleToDoCategoryChange={() => {}}
           />
         );
         fireEvent.click(getByRole('button'));
@@ -57,6 +74,9 @@ describe('ToDo Item tests', () => {
             handleChangeProps={() => {}}
             deleteTodoProps={() => {}}
             setUpdate={setUpdate}
+            selectedCategory={todo.category}
+            categories={categories}
+            handleToDoCategoryChange={() => {}}
           />
         );
         fireEvent.doubleClick(getByText('Test Todo'));

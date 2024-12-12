@@ -18,7 +18,7 @@ const TodoContainer = () => {
     "Personal",
     "Einkauf"
   ])
-  const [todos, setTodos] = useState([
+  const [todos, setTodos] = useState([/*
     {
       "id": "48793583-5ca1-483d-b189-e653515e8be2",
       "title": "todo 1",
@@ -37,7 +37,7 @@ const TodoContainer = () => {
       "completed": false,
       "category": "Arbeit"
     }
-  ]);
+  */]);
 
   const getInitialTodos = () => {
     const temp = localStorage.getItem("todos");

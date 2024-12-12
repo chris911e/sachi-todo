@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import TodoContainer from '@/app/components/TodoContainer';
+import { ClientSegmentRoot } from 'next/dist/client/components/client-segment';
 
 describe('Todo Container test', () => {
     test('adds a new todo item', () => {
