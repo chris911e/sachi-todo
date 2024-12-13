@@ -152,6 +152,7 @@ const config = {
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    "\\.(jpg|jpeg|png|gif|webp|svg)$": "jest-transform-stub",
   },
   testEnvironment: "jsdom",
 

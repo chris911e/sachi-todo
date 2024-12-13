@@ -40,8 +40,11 @@ const TodoItem = (props) => {
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      setEditing(false);
-      props.setUpdate(newTitle, id);
+      if(newTitle.trim().length > 0) {
+        setEditing(false);
+        props.setUpdate(newTitle, id);
+        return
+      }
     }
   };
 
