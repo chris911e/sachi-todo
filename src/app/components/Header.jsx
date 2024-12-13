@@ -18,7 +18,7 @@ const Header = () => {
 
         data-test='todo-header'
       >
-        ToDo List
+        SaChi ToDo List
       </h1>
     </header>
   );

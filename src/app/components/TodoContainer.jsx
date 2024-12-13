@@ -6,10 +6,10 @@ import { v4 as uuidv4 } from "uuid";
 import Header from "./Header";
 import InputTodo from "./InputTodo";
 import TodosList from "./TodosList";
-import styles from "./TodoContainer.module.css";
 import CategoryButton from "./CategoryButton";
 import Image from "next/image";
 import filter from "./assets/filter.svg"
+import FilterModal from "./FilterModal";
 
 const TodoContainer = () => {
   // test data
@@ -19,30 +19,33 @@ const TodoContainer = () => {
     "Personal",
     "Einkauf"
   ])
-  const [todos, setTodos] = useState([/*
+  const [todos, setTodos] = useState([
     {
       "id": "48793583-5ca1-483d-b189-e653515e8be2",
       "title": "todo 1",
       "completed": false,
-      "category": "Unkategorisiert"
+      "category": "Unkategorisiert",
+      "priority": 0
     },
     {
       "id": "dff5ef6d-ca33-4d1a-a4f5-a6831d6303ef",
       "title": "todo 2",
       "completed": false,
-      "category": "Unkategorisiert"
+      "category": "Unkategorisiert",
+      "priority": 1
     },
     {
       "id": "254bfeef-ebac-405c-b413-b87fb72f73d8",
       "title": "todo 3",
       "completed": false,
-      "category": "Arbeit"
+      "category": "Arbeit",
+      "priority": 2
     }
-  */]);
+  ]);
 
   const [filterModalVisible, setFilterModalVisible] = useState(false)
   const [filters, setFilters] = useState({
-    "severity": "",
+    "priority": "",
     "expiration": "",
     "category": ""
   })
@@ -89,6 +92,20 @@ const TodoContainer = () => {
     })
   }
 
+  const handleToDoPriorityChange = (id, updatedPriority) => {
+    setTodos((prevState) => {
+      return prevState.map((todo) => {
+        if(todo.id === id) {
+          return {
+            ...todo,
+            priority: updatedPriority
+          }
+        }
+        return todo
+      })
+    })
+  }
+
   const delTodo = (id) => {
     setTodos([...todos.filter((todo) => todo.id !== id)]);
   };
@@ -102,7 +119,8 @@ const TodoContainer = () => {
       id: uuidv4(),
       title,
       completed: false,
-      category: "Unkategorisiert"
+      category: "Unkategorisiert",
+      priority: 0
     };
     setTodos([...todos, newTodo]);
   };
@@ -151,78 +169,39 @@ const TodoContainer = () => {
         width: "50%"
       }}>
         <Header />
+        <InputTodo addTodoProps={addTodoItem} />
+        <hr style={{ margin: "10px 0", border: "1px solid #ccc" }} />
         <div style={{ display: "flex", justifyContent: "space-between", gap: 5, alignItems: "center" }}>
-          <button
-            onClick={() => setFilterModalVisible(true)}
-            style={{
-              all: "unset",
-              cursor: "pointer"
-            }}
-          >
-            <Image src={filter} alt="filter" height={32} width={32} />
-          </button>
-          <InputTodo addTodoProps={addTodoItem} />
           <CategoryButton
             addCategory={addCategory}
             categories={categories}
             deleteCategoryProp={delCategory}
           />
+          <button
+            onClick={() => setFilterModalVisible(true)}
+            style={{
+              all: "unset",
+              cursor: "pointer",
+              marginRight: "10px"
+            }}
+          >
+            <Image src={filter} alt="filter" height={32} width={32} />
+          </button>
         </div>
-        <hr style={{ margin: "10px 0", border: "1px solid #ccc" }} />
         <TodosList
           todos={todos}
           handleChangeProps={handleChange}
           handleCategoryChange={handleToDoCategoryChange}
+          handlePriorityChange={handleToDoPriorityChange}
           deleteTodoProps={delTodo}
           setUpdate={setUpdate}
           categories={categories}
         />
         {
           filterModalVisible && (
-            <div
-              onClick={() => setFilterModalVisible(false)}
-              style={{
-                position: "fixed",
-                inset: 0,
-                backgroundColor: "rgba(0, 0, 0, 0.1)",
-                display: "flex",
-                justifyContent: "flex-start"
-              }}
-            >
-              <div
-                onClick={(e) => e.stopPropagation()}
-                style={{
-                  backgroundColor: "whitesmoke",
-                  boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
-                  height: "100vh",
-                  maxWidth: "300px",
-                  width: "90%"
-                }}
-              >
-                <div style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  padding: "5px",
-                  gap: 5
-                }}>
-                  <div style={{
-                    textAlign: "center"
-                  }}>
-                    <strong>Filters</strong>
-                  </div>
-                  <hr style={{ margin: "10px 0", border: "1px solid #ccc" }} />
-                  <div>
-                    Severity
-                  </div>
-                  <div>
-                    Expiration
-                  </div>
-                  <div>
-                    Category
-                  </div>
-                </div>
-              </div>
-            </div>
+            <FilterModal
+              hideModal={() => setFilterModalVisible(false)}
+            />
           )
         }
       </div>
