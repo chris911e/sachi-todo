@@ -6,7 +6,7 @@ import Priority from "./Priority";
 
 const TodoItem = (props) => {
 
-  const { completed, id, title, category } = props.todo;
+  const { completed, id, title, category, priority } = props.todo;
 
   const [newCategory, setNewCategory] = useState(category);
   const [editing, setEditing] = useState(false);
@@ -71,6 +71,11 @@ const TodoItem = (props) => {
             onChange={() => props.handleChangeProps(id)}
             name="checkbox"
           />
+          <Priority
+            priority={priority}
+            handlePriorityChange={props.handleToDoPriorityChange}
+            id={id}
+          />
         </div>
 
         <div style={{ gridColumn: "2 / 7" }}>
@@ -122,7 +127,10 @@ const TodoItem = (props) => {
           </select>
         </div>
 
-        <div>
+        <div style={{
+          display: "flex",
+          justifyContent: "center"
+        }}>
           <button
             data-set="delete-todo-btn"
             onClick={() => props.deleteTodoProps(id)}

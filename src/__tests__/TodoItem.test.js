@@ -6,7 +6,8 @@ const todo = {
   id: 1,
   title: 'Test Todo',
   completed: false,
-  category: "Unkategorisiert"
+  category: "Unkategorisiert",
+  priority: 0
 };
 
 const categories = [
@@ -27,6 +28,7 @@ describe('ToDo Item tests', () => {
             selectedCategory={todo.category}
             categories={categories}
             handleToDoCategoryChange={() => {}}
+            handleToDoPriorityChange={() => {}}
           />
         );
         expect(getByText('Test Todo')).toBeInTheDocument();
@@ -43,6 +45,7 @@ describe('ToDo Item tests', () => {
             selectedCategory={todo.category}
             categories={categories}
             handleToDoCategoryChange={() => {}}
+            handleToDoPriorityChange={() => {}}
           />
         );
         fireEvent.click(getByRole('checkbox'));
@@ -60,6 +63,7 @@ describe('ToDo Item tests', () => {
             selectedCategory={todo.category}
             categories={categories}
             handleToDoCategoryChange={() => {}}
+            handleToDoPriorityChange={() => {}}
           />
         );
         fireEvent.click(getByRole('button'));
@@ -77,6 +81,7 @@ describe('ToDo Item tests', () => {
             selectedCategory={todo.category}
             categories={categories}
             handleToDoCategoryChange={() => {}}
+            handleToDoPriorityChange={() => {}}
           />
         );
         fireEvent.doubleClick(getByText('Test Todo'));

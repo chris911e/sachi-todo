@@ -35,14 +35,14 @@ export default function CategoryButton(props) {
             <button
                 onClick={handleCategoryButton}
                 style={{
-                    border: "2px solid gray",
+                    border: "none",
                     borderRadius: "5px",
                     margin: "10px",
                     padding: "10px",
                     cursor: "pointer"
                 }}
             >
-                Add Category
+                Categories
             </button>
             {
                 categoryModal && (
@@ -55,6 +55,7 @@ export default function CategoryButton(props) {
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
+                            zIndex: 1000
                         }}
                     >
                         <div
