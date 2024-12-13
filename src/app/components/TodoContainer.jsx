@@ -19,7 +19,7 @@ const TodoContainer = () => {
     "Personal",
     "Einkauf"
   ])
-  const [todos, setTodos] = useState([
+  const [todos, setTodos] = useState([/*
     {
       "id": "48793583-5ca1-483d-b189-e653515e8be2",
       "title": "todo 1",
@@ -41,7 +41,7 @@ const TodoContainer = () => {
       "category": "Arbeit",
       "priority": 2
     }
-  ]);
+  */]);
 
   const [filterModalVisible, setFilterModalVisible] = useState(false)
   const [filters, setFilters] = useState({
