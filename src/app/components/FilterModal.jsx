@@ -28,13 +28,15 @@ export default function FilterModal(props) {
                     boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
                     height: "100vh",
                     maxWidth: "300px",
-                    width: "90%"
+                    width: "90%",
+                    transition: "all 0.3s ease",
+                    animation: "slideRight 0.5s ease",
                 }}
             >
                 <div style={{
                     display: "flex",
                     flexDirection: "column",
-                    padding: "5px",
+                    margin: "20px",
                     gap: 5
                 }}>
                     <div style={{

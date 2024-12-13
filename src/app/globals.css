@@ -63,3 +63,25 @@ body {
   max-width: 800px;
   margin: 0 auto !important;
 }
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Starts slightly above its position */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Moves to its natural position */
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px); /* Starts slightly above its position */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Moves to its natural position */
+  }
+}

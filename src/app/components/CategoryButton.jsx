@@ -55,7 +55,7 @@ export default function CategoryButton(props) {
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            zIndex: 1000
+                            zIndex: 1000,
                         }}
                     >
                         <div
@@ -64,6 +64,8 @@ export default function CategoryButton(props) {
                                 background: "white",
                                 padding: "20px",
                                 borderRadius: "8px",
+                                transition: "all 0.3s ease",
+                                animation: "slideDown 0.5s ease",
                             }}
                         >
                             <div style={{
@@ -121,7 +123,7 @@ export default function CategoryButton(props) {
                                                     style={{
                                                         display: "flex",
                                                         justifyContent: "space-between",
-                                                        width: "100%"
+                                                        width: "100%",
                                                     }}
                                                 >
                                                     <div>
