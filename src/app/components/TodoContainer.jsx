@@ -8,7 +8,8 @@ import InputTodo from "./InputTodo";
 import TodosList from "./TodosList";
 import styles from "./TodoContainer.module.css";
 import CategoryButton from "./CategoryButton";
-import TodoItem from "./TodoItem";
+import Image from "next/image";
+import filter from "./assets/filter.svg"
 
 const TodoContainer = () => {
   // test data
@@ -38,6 +39,17 @@ const TodoContainer = () => {
       "category": "Arbeit"
     }
   */]);
+
+  const [filterModalVisible, setFilterModalVisible] = useState(false)
+  const [filters, setFilters] = useState({
+    "severity": "",
+    "expiration": "",
+    "category": ""
+  })
+
+  const handleFilterChange = (category, value) => {
+    // logic
+  }
 
   const getInitialTodos = () => {
     const temp = localStorage.getItem("todos");
@@ -132,19 +144,31 @@ const TodoContainer = () => {
   return (
     <div style={{
       display: "flex",
-      justifyContent: "center",
+      justifyContent: "center"
     }}>
       <div style={{
         position: "relative",
         width: "50%"
       }}>
         <Header />
-        <CategoryButton 
-          addCategory={addCategory}
-          categories={categories}
-          deleteCategoryProp={delCategory}
-        />
-        <InputTodo addTodoProps={addTodoItem} />
+        <div style={{ display: "flex", justifyContent: "space-between", gap: 5, alignItems: "center" }}>
+          <button
+            onClick={() => setFilterModalVisible(true)}
+            style={{
+              all: "unset",
+              cursor: "pointer"
+            }}
+          >
+            <Image src={filter} alt="filter" height={32} width={32} />
+          </button>
+          <InputTodo addTodoProps={addTodoItem} />
+          <CategoryButton
+            addCategory={addCategory}
+            categories={categories}
+            deleteCategoryProp={delCategory}
+          />
+        </div>
+        <hr style={{ margin: "10px 0", border: "1px solid #ccc" }} />
         <TodosList
           todos={todos}
           handleChangeProps={handleChange}
@@ -153,6 +177,54 @@ const TodoContainer = () => {
           setUpdate={setUpdate}
           categories={categories}
         />
+        {
+          filterModalVisible && (
+            <div
+              onClick={() => setFilterModalVisible(false)}
+              style={{
+                position: "fixed",
+                inset: 0,
+                backgroundColor: "rgba(0, 0, 0, 0.1)",
+                display: "flex",
+                justifyContent: "flex-start"
+              }}
+            >
+              <div
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  backgroundColor: "whitesmoke",
+                  boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
+                  height: "100vh",
+                  maxWidth: "300px",
+                  width: "90%"
+                }}
+              >
+                <div style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: "5px",
+                  gap: 5
+                }}>
+                  <div style={{
+                    textAlign: "center"
+                  }}>
+                    <strong>Filters</strong>
+                  </div>
+                  <hr style={{ margin: "10px 0", border: "1px solid #ccc" }} />
+                  <div>
+                    Severity
+                  </div>
+                  <div>
+                    Expiration
+                  </div>
+                  <div>
+                    Category
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        }
       </div>
     </div>
   );
