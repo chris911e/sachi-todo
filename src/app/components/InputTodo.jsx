@@ -5,7 +5,7 @@ import { FaPlusCircle } from "react-icons/fa";
 const InputTodo = (props) => {
   const [inputText, setInputText] = useState({
     title: "",
-    expiration: new Date(2006, 1, 15)
+    expiration: ""
   });
 
   const onChange = (e) => {
@@ -17,11 +17,12 @@ const InputTodo = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputText.title.trim()) {
-      props.addTodoProps(inputText.title, inputText.expiration);
+    if (inputText.title.trim() && inputText.expiration.trim()) {
+      console.log(new Date(inputText.expiration))
+      props.addTodoProps(inputText.title, new Date(inputText.expiration));
       setInputText({
         title: "",
-        date: new Date(2006, 1, 15)
+        expiration: ""
       });
     } else {
       alert("Please write item");
@@ -42,11 +43,10 @@ const InputTodo = (props) => {
         name="title"
         onChange={onChange}
       />
-
       <input
         type="date"
         className="input-text"
-        value={inputText.expiration}
+        value={inputText.expiration} // Use string value
         name="expiration"
         onChange={onChange}
       />
