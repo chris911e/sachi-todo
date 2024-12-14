@@ -105,7 +105,9 @@ const TodoItem = (props) => {
               {title}
             </div>
           )}
-          <Expiration expiration={expiration}/>
+          <div style={{marginTop: "7px"}}>
+            <Expiration expiration={expiration}/>
+          </div>
         </div>
         <div>
           <select

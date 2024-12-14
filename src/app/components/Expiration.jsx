@@ -1,3 +1,5 @@
+import { FaCalendar } from "react-icons/fa";
+
 export default function Expiration({expiration}) {
     let exDate = new Date(expiration)
 
@@ -11,8 +13,9 @@ export default function Expiration({expiration}) {
     }
 
     return (
-        <div>
-            <p style={{color: getColor()}}>{exDate.getDate()}.{exDate.getMonth()+1}.{exDate.getFullYear()}</p>
+        <div style={{display: "flex", gap: "10px", alignItems: "center", height: "10px"}}>
+            <FaCalendar />
+            <p style={{color: getColor(), fontSize: "14px"}}>{exDate.getDate()}.{exDate.getMonth()+1}.{exDate.getFullYear()}</p>
         </div>
     )
 }
