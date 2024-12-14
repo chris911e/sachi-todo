@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
 import styles from "./TodoItem.module.css";
 import Priority from "./Priority";
+import Expiration from "./Expiration";
 
 const TodoItem = (props) => {
 
-  const { completed, id, title, category, priority } = props.todo;
+  const { completed, id, title, category, priority, expiration } = props.todo;
 
   const [newCategory, setNewCategory] = useState(category);
   const [editing, setEditing] = useState(false);
@@ -104,8 +105,8 @@ const TodoItem = (props) => {
               {title}
             </div>
           )}
+          <Expiration expiration={expiration}/>
         </div>
-
         <div>
           <select
             value={newCategory}

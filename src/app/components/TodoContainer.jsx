@@ -134,13 +134,14 @@ const TodoContainer = () => {
     setCategories([...categories.filter((category) => category !== name)])
   }
 
-  const addTodoItem = (title) => {
+  const addTodoItem = (title, expiration) => {
     const newTodo = {
       id: uuidv4(),
       title,
       completed: false,
       category: "Unkategorisiert",
-      priority: 0
+      priority: 0,
+      expiration: expiration
     };
     setTodos([...todos, newTodo]);
   };
