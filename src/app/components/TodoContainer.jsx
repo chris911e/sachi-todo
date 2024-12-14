@@ -162,7 +162,7 @@ const TodoContainer = () => {
     setCategories([...categories, category])
   }
 
-  const setUpdate = (updatedTitle, id) => {
+  const setTitleUpdate = (updatedTitle, id) => {
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
@@ -171,6 +171,19 @@ const TodoContainer = () => {
         return todo;
       })
     );
+  };
+
+  const setExpirationUpdate = (updatedDate, id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.expiration = updatedDate;
+        }
+        return todo;
+      })
+    );
+
+    console.log(todos)
   };
 
   // storing todos items
@@ -215,7 +228,8 @@ const TodoContainer = () => {
           handleCategoryChange={handleToDoCategoryChange}
           handlePriorityChange={handleToDoPriorityChange}
           deleteTodoProps={delTodo}
-          setUpdate={setUpdate}
+          setUpdate={setTitleUpdate}
+          setExpirationUpdate={setExpirationUpdate}
           categories={categories}
           filters={filters}
         />

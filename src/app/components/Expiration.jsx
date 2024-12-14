@@ -1,7 +1,10 @@
 import { FaCalendar } from "react-icons/fa";
+import { useState } from "react";
 
-export default function Expiration({expiration}) {
-    let exDate = new Date(expiration)
+export default function Expiration(props) {
+
+    const [editing, setEditing] = useState(false)
+    const [exDate, setExDate] = useState(new Date(props.expiration).toISOString().split('T')[0]);
 
     const getColor = () => {
         if (isWithinNext24Hours(exDate)){
@@ -12,10 +15,51 @@ export default function Expiration({expiration}) {
         }
     }
 
+    const handleDoubleClick = () => {
+        setEditing(true);
+      };
+    
+    const handleDateChange = (e) => {
+        setExDate(e.target.value);
+    }
+
+    const handleBlur = () => {
+        setEditing(false);
+        props.setExpirationUpdate(exDate, props.id);
+      };
+    
+      const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+          if(exDate.trim().length > 0) {
+            setEditing(false);
+            props.setExpirationUpdate(exDate, props.id);
+            return
+          }
+        }
+      };
+
     return (
         <div style={{display: "flex", gap: "10px", alignItems: "center", height: "10px"}}>
             <FaCalendar />
-            <p style={{color: getColor(), fontSize: "14px"}}>{getDayByWeekDay(exDate.getDay())}, {exDate.getDate()}.{exDate.getMonth()+1}.{exDate.getFullYear()}</p>
+            {editing ? (
+                <input
+                type="date"
+                value={exDate}
+                onChange={handleDateChange}
+                onBlur={handleBlur}
+                onKeyDown={handleKeyDown}
+                style={{
+                    width: "100%",
+                    padding: "5px",
+                    borderRadius: "5px",
+                    fontSize: "14px",
+                }}
+                />
+            ) : (
+                <div onDoubleClick={handleDoubleClick} >
+                    <p style={{color: getColor(), fontSize: "14px"}}>{getDayByWeekDay(new Date(exDate).getDay())}, {new Date(exDate).getDate()}.{new Date(exDate).getMonth()+1}.{new Date(exDate).getFullYear()}</p>
+                </div>
+            )}
         </div>
     )
 }
@@ -33,11 +77,10 @@ function isWithinNext24Hours(dateToCheck) {
   }
 
 function isNowOrPast(dateToCheck) {
+    const checkDateFormat = new Date(dateToCheck)
     const now = new Date()
-    console.log(dateToCheck)
-    console.log(now)
-    console.log(dateToCheck<now)
-    return dateToCheck < now;
+
+    return checkDateFormat < now;
   }
   
 function getDayByWeekDay(id){
