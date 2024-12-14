@@ -15,7 +15,7 @@ export default function Expiration({expiration}) {
     return (
         <div style={{display: "flex", gap: "10px", alignItems: "center", height: "10px"}}>
             <FaCalendar />
-            <p style={{color: getColor(), fontSize: "14px"}}>{exDate.getDate()}.{exDate.getMonth()+1}.{exDate.getFullYear()}</p>
+            <p style={{color: getColor(), fontSize: "14px"}}>{getDayByWeekDay(exDate.getDay())}, {exDate.getDate()}.{exDate.getMonth()+1}.{exDate.getFullYear()}</p>
         </div>
     )
 }
@@ -40,3 +40,9 @@ function isNowOrPast(dateToCheck) {
     return dateToCheck < now;
   }
   
+function getDayByWeekDay(id){
+    const days = [{id: 1, day: "Monday"}, {id: 2, day: "Tuesday"}, {id: 3, day: "Wednesday"}, {id: 4, day: "Thursday"}, {id: 5, day: "Friday"}, {id: 6, day: "Saturday"}, {id: 7, day: "Sunday"}]
+
+    
+    return days.find(x => x.id == id).day
+}
