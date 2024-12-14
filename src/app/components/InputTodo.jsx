@@ -46,6 +46,7 @@ const InputTodo = (props) => {
       <input
         type="date"
         className="input-text"
+        role="dateInput"
         value={inputText.expiration} // Use string value
         name="expiration"
         onChange={onChange}
