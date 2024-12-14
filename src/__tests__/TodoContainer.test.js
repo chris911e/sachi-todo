@@ -4,6 +4,8 @@ import TodoContainer from '@/app/components/TodoContainer';
 import { ClientSegmentRoot } from 'next/dist/client/components/client-segment';
 
 describe('Todo Container test', () => {
+    jest.mock("next/image")
+
     test('adds a new todo item', () => {
         const { getByPlaceholderText, getByText } = render(<TodoContainer />);
         const inputElement = getByPlaceholderText('Add todo...');
