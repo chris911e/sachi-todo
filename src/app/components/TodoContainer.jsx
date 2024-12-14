@@ -8,10 +8,12 @@ import InputTodo from "./InputTodo";
 import TodosList from "./TodosList";
 import CategoryButton from "./CategoryButton";
 import Image from "next/image";
-import filter from "./assets/filter.svg"
 import FilterModal from "./FilterModal";
+import filterAdd from "./assets/filterAdd.svg"
+import filterTick from "./assets/filterTick.svg"
 
 const TodoContainer = () => {
+  const severities = ["Low", "Medium", "High"];
   // test data
   const [categories, setCategories] = useState([
     "Unkategorisiert",
@@ -19,7 +21,7 @@ const TodoContainer = () => {
     "Personal",
     "Einkauf"
   ])
-  const [todos, setTodos] = useState([/*
+  const [todos, setTodos] = useState([
     {
       "id": "48793583-5ca1-483d-b189-e653515e8be2",
       "title": "todo 1",
@@ -41,7 +43,8 @@ const TodoContainer = () => {
       "category": "Arbeit",
       "priority": 2
     }
-  */]);
+  ]);
+  const [filteredTodos, setFilteredTodos] = useState(todos)
 
   const [filterModalVisible, setFilterModalVisible] = useState(false)
   const [filters, setFilters] = useState({
@@ -50,9 +53,25 @@ const TodoContainer = () => {
     "category": ""
   })
 
+  const isFilterActive = Object.values(filters).some(value => value !== "");
+
   const handleFilterChange = (category, value) => {
-    // logic
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [category]: value
+    }))
   }
+
+  useEffect(() => {
+    const filteredTodos = todos.filter((todo) => {
+      const isPriorityMatch = filters.priority === "" || filters.priority === severities[todo.priority];
+      
+      const isCategoryMatch = filters.category === "" || filters.category === todo.category;
+      
+      return isPriorityMatch && isCategoryMatch;
+    });
+    setFilteredTodos(filteredTodos);
+  }, [filters, todos])
 
   const getInitialTodos = () => {
     const temp = localStorage.getItem("todos");
@@ -185,22 +204,26 @@ const TodoContainer = () => {
               marginRight: "10px"
             }}
           >
-            <Image src={filter} alt="filter" height={32} width={32} />
+            <Image src={isFilterActive ? filterTick : filterAdd} alt="filter" height={27} width={27} />
           </button>
         </div>
         <TodosList
-          todos={todos}
+          todos={filteredTodos}
           handleChangeProps={handleChange}
           handleCategoryChange={handleToDoCategoryChange}
           handlePriorityChange={handleToDoPriorityChange}
           deleteTodoProps={delTodo}
           setUpdate={setUpdate}
           categories={categories}
+          filters={filters}
         />
         {
           filterModalVisible && (
             <FilterModal
               hideModal={() => setFilterModalVisible(false)}
+              handleFilterChange={handleFilterChange}
+              categories={categories}
+              filters={filters}
             />
           )
         }
