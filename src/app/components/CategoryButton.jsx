@@ -35,11 +35,12 @@ export default function CategoryButton(props) {
             <button
                 onClick={handleCategoryButton}
                 style={{
-                    border: "none",
+                    border: "2px solid gainsboro",
                     borderRadius: "5px",
                     margin: "10px",
                     padding: "10px",
-                    cursor: "pointer"
+                    cursor: "pointer",
+                    backgroundColor: "white"
                 }}
             >
                 Categories
