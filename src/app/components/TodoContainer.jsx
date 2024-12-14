@@ -71,6 +71,7 @@ const TodoContainer = () => {
       return isPriorityMatch && isCategoryMatch;
     });
     setFilteredTodos(filteredTodos);
+    console.log(filters)
   }, [filters, todos])
 
   const getInitialTodos = () => {
@@ -204,7 +205,7 @@ const TodoContainer = () => {
               marginRight: "10px"
             }}
           >
-            <Image src={isFilterActive ? filterTick : filterAdd} alt="filter" height={27} width={27} />
+            <Image src={isFilterActive ? filterTick : filterAdd} alt="filter" height={28} width={28} />
           </button>
         </div>
         <TodosList

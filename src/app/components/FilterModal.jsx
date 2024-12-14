@@ -10,8 +10,8 @@ export default function FilterModal(props) {
     const [showExpiration, setShowExpiration] = useState(props.filters.expiration.length !== 0)
     const [showCategory, setShowCategory] = useState(props.filters.category.length !== 0)
 
-    const isFilterSet = (filter) => {
-        return props.filters[filter].length > 0
+    const isSameFilter = (type, filter) => {
+        return props.filters[type] === filter
     }
 
     const handleShowPriority = () => {
@@ -27,19 +27,18 @@ export default function FilterModal(props) {
     }
 
     const handlePriorityChange = (priority) => {
-        const newPriority = isFilterSet("priority") ? "" : priority;
+        const newPriority = isSameFilter("priority", priority) ? "" : priority;
         props.handleFilterChange("priority", newPriority);
     }
 
     const handleExpirationChange = (expiration) => {
-        const newExpiration = isFilterSet("expiration") ? "" : expiration;
+        const newExpiration = isSameFilter("expiration", expiration) ? "" : expiration;
         props.handleFilterChange("expiration", newExpiration);
     }
 
     const handleCategoryChange = (category) => {
-        const newCategory = isFilterSet("category") ? "" : category;
+        const newCategory = isSameFilter("category", category) ? "" : category;
         props.handleFilterChange("category", newCategory);
-
     }
 
     const clearAllFilters = () => {
@@ -84,7 +83,7 @@ export default function FilterModal(props) {
                         <strong>Filters</strong>
                     </div>
                     <hr style={{ margin: "10px 0", border: "1px solid #ccc" }} />
-                    <div>
+                    <div className="unselectable">
                         <div
                             onClick={handleShowPriority}
                             style={{
@@ -116,6 +115,7 @@ export default function FilterModal(props) {
                                                         cursor: "pointer",
                                                         fontWeight: priority === props.filters.priority ? "bold" : "normal"
                                                     }}
+                                                    className="unselectable"
                                                 >
                                                     {priority}
                                                 </div>
@@ -126,7 +126,7 @@ export default function FilterModal(props) {
                             }
                         </div>
                     </div>
-                    <div>
+                    <div className="unselectable">
                         <div
                             onClick={handleShowExpiration}
                             style={{
@@ -156,6 +156,7 @@ export default function FilterModal(props) {
                                                         cursor: "pointer",
                                                         fontWeight: expiration === props.filters.expiration ? "bold" : "normal"
                                                     }}
+                                                    className="unselectable"
                                                 >
                                                     {expiration}
                                                 </div>
@@ -166,7 +167,7 @@ export default function FilterModal(props) {
                             }
                         </div>
                     </div>
-                    <div>
+                    <div className="unselectable">
                         <div
                             onClick={handleShowCategory}
                             style={{
@@ -215,6 +216,7 @@ export default function FilterModal(props) {
                         margin: "15px",
                         cursor: "pointer"
                     }}
+                    className="unselectable"
                 >
                     Clear All Filters
                 </div>
