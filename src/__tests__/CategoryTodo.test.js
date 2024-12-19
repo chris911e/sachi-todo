@@ -21,6 +21,7 @@ const categories = [
 
 describe("Tests Category Todo", () => {
     test('should test category todo', () => {
+
         const screen = render(
             <TodoItem
                 key={todo.id}
