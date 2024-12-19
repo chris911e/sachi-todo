@@ -42,6 +42,7 @@ export default function CategoryButton(props) {
                     cursor: "pointer",
                     backgroundColor: "white"
                 }}
+                data-testid="category-button"
             >
                 Categories
             </button>
@@ -58,6 +59,7 @@ export default function CategoryButton(props) {
                             justifyContent: "center",
                             zIndex: 1000,
                         }}
+                        data-testid="category-modal"
                     >
                         <div
                             onClick={(e) => e.stopPropagation()}
@@ -99,6 +101,7 @@ export default function CategoryButton(props) {
                                             padding: "10px"
                                         }}
                                         onClick={handleAddCategory}
+                                        data-testid="add-category-button"
                                     >
                                         Add
                                     </button>
@@ -131,7 +134,7 @@ export default function CategoryButton(props) {
                                                         {category}
                                                     </div>
                                                     <button
-                                                        data-set="delete-todo-btn"
+                                                        data-testid={`delete-${category}`}
                                                         onClick={() => props.deleteCategoryProp(category)}
                                                         style={{
                                                             borderRadius: "10px",
