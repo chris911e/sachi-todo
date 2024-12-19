@@ -69,6 +69,7 @@ export default function FilterModal(props) {
                     transition: "all 0.3s ease",
                     animation: "slideRight 0.5s ease",
                 }}
+                data-testid="filter-modal"
             >
                 <div style={{
                     display: "flex",
@@ -92,6 +93,7 @@ export default function FilterModal(props) {
                                 cursor: "pointer",
                                 fontSize: "20px"
                             }}
+                            data-testid="priority-filter"
                         >
                             <Image src={showPriority ? minus : plus} alt="" height={30} width={30} />
                             Priority
@@ -101,10 +103,13 @@ export default function FilterModal(props) {
                         }}>
                             {
                                 showPriority && (
-                                    <div style={{
-                                        marginLeft: "20px",
-                                        marginRight: "20px",
-                                    }}>
+                                    <div
+                                        style={{
+                                            marginLeft: "20px",
+                                            marginRight: "20px",
+                                        }}
+                                        data-testid="priority-filter-list"
+                                    >
                                         <hr style={{ margin: "10px 0", border: "1px solid #ccc" }} />
                                         {
                                             ["Low", "Medium", "High"].map((priority, key) => (
@@ -176,6 +181,7 @@ export default function FilterModal(props) {
                                 cursor: "pointer",
                                 fontSize: "20px"
                             }}
+                            data-testid="category-filter"
                         >
                             <Image src={showCategory ? minus : plus} alt="" height={30} width={30} />
                             Category
@@ -183,10 +189,13 @@ export default function FilterModal(props) {
                         <div>
                             {
                                 showCategory && (
-                                    <div style={{
-                                        marginLeft: "20px",
-                                        marginRight: "20px",
-                                    }}>
+                                    <div
+                                        style={{
+                                            marginLeft: "20px",
+                                            marginRight: "20px",
+                                        }}
+                                        data-testid="category-filter-list"
+                                    >
                                         <hr style={{ margin: "10px 0", border: "1px solid #ccc" }} />
                                         {
                                             props.categories.map((category, key) => (

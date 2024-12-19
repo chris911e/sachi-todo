@@ -54,7 +54,7 @@ const TodoItem = (props) => {
   }, []);
 
   return (
-    <li className={styles.item} data-type="todo-item">
+    <li className={styles.item} data-testid="todo-item">
       <div
         style={{
           display: "grid",

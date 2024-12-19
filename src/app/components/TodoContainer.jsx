@@ -12,7 +12,7 @@ import FilterModal from "./FilterModal";
 import filterAdd from "./assets/filterAdd.svg"
 import filterTick from "./assets/filterTick.svg"
 
-const TodoContainer = () => {
+const TodoContainer = (props) => {
   const severities = ["Low", "Medium", "High"];
   // test data
   const [categories, setCategories] = useState([
@@ -21,33 +21,11 @@ const TodoContainer = () => {
     "Personal",
     "Einkauf"
   ])
-  const [todos, setTodos] = useState([/*
-    {
-      "id": "48793583-5ca1-483d-b189-e653515e8be2",
-      "title": "todo 1",
-      "completed": false,
-      "category": "Unkategorisiert",
-      "priority": 0
-    },
-    {
-      "id": "dff5ef6d-ca33-4d1a-a4f5-a6831d6303ef",
-      "title": "todo 2",
-      "completed": false,
-      "category": "Unkategorisiert",
-      "priority": 1
-    },
-    {
-      "id": "254bfeef-ebac-405c-b413-b87fb72f73d8",
-      "title": "todo 3",
-      "completed": false,
-      "category": "Arbeit",
-      "priority": 2
-    }
-  */]);
+  const [todos, setTodos] = useState(props.sampleData ?? []);
   const [filteredTodos, setFilteredTodos] = useState(todos)
 
   const [filterModalVisible, setFilterModalVisible] = useState(false)
-  const [filters, setFilters] = useState({
+  const [filters, setFilters] = useState(props.filterData ?? {
     "priority": "",
     "expiration": "",
     "category": ""
@@ -218,6 +196,7 @@ const TodoContainer = () => {
               cursor: "pointer",
               marginRight: "10px"
             }}
+            data-testid="filter-button"
           >
             <Image src={isFilterActive ? filterTick : filterAdd} alt="filter" height={28} width={28} />
           </button>

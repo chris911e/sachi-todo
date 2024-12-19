@@ -18,7 +18,6 @@ const categories = [
     "Einkauf"
 ]
 
-
 describe("Tests Priority Todo", () => {
     test('should test priority todo', () => {
         const screen = render(
