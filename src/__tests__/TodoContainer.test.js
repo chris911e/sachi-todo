@@ -81,14 +81,17 @@ describe('Todo Container test', () => {
 
             fireEvent.submit(inputElement.closest('form'));
             expect(getByText('New Todo')).toBeInTheDocument();
+            let editInputElement = getByRole("todoEdit");
 
-            fireEvent.click(getByText('New Todo').closest('li').querySelector('button.edit'));
-            const editInputElement = getByDisplayValue('New Todo');
+            fireEvent.dblClick(editInputElement)
+            editInputElement = getByRole("todoEdit");
+
             fireEvent.change(editInputElement, { target: { value: 'Updated Todo' } });
-            fireEvent.submit(editInputElement.closest('form'));
+            fireEvent.submit(editInputElement)
+            fireEvent.enter;
 
-            expect(getByText('Updated Todo')).toBeInTheDocument();
-            expect(getByText('New Todo')).not.toBeInTheDocument();
+            expect(getByRole('todoEdit').value).toBe("Updated Todo");
+            expect(getByRole('todoEdit').value).not.toBe("New Todo");
       });
 
       test('filters todo items by completion status', () => {
@@ -106,16 +109,15 @@ describe('Todo Container test', () => {
 
             const checkboxes = getAllByRole('checkbox');
             fireEvent.click(checkboxes[0]);
-
             fireEvent.click(getByText((content, element) => content.includes('Completed')));
             expect(getByText('New Todo')).toBeInTheDocument();
             expect(() => getByText('Another Todo')).toThrow();
 
-            fireEvent.click(getByText('Active'));
+            fireEvent.click(getByText((content, element) => content.includes('Active')));
             expect(getByText('Another Todo')).toBeInTheDocument();
             expect(() => getByText('New Todo')).toThrow();
 
-            fireEvent.click(getByText('All'));
+            fireEvent.click(getByText((content, element) => content.includes('All')));
             expect(getByText('New Todo')).toBeInTheDocument();
             expect(getByText('Another Todo')).toBeInTheDocument();
         })
