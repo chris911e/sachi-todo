@@ -42,6 +42,7 @@ export default function Priority(props) {
                     borderRadius: "50%",
                     cursor: "pointer"
                 }}
+                data-testid={`priority-todo-${props.id}`}
             ></div>
         );
     };
@@ -70,6 +71,7 @@ export default function Priority(props) {
                             borderRadius: "4px",
                             boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
                         }}
+                        data-testid={`priority-todo-severity-${props.id}`}
                     >
                         {severities[currentPriority]}
                     </span>
