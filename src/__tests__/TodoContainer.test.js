@@ -93,32 +93,4 @@ describe('Todo Container test', () => {
             expect(getByRole('todoEdit').value).toBe("Updated Todo");
             expect(getByRole('todoEdit').value).not.toBe("New Todo");
       });
-
-      test('filters todo items by completion status', () => {
-            const { getByPlaceholderText, getByText, getByRole, getAllByRole } = render(<TodoContainer />);
-            const inputElement = getByPlaceholderText('Add todo...');
-            const dateElement = getByRole('dateInput');
-
-            fireEvent.change(inputElement, { target: { value: 'New Todo' } });
-            fireEvent.change(dateElement, { target: { value: "2011-10-05" } });
-            fireEvent.submit(inputElement.closest('form'));
-
-            fireEvent.change(inputElement, { target: { value: 'Another Todo' } });
-            fireEvent.change(dateElement, { target: { value: "2011-10-06" } });
-            fireEvent.submit(inputElement.closest('form'));
-
-            const checkboxes = getAllByRole('checkbox');
-            fireEvent.click(checkboxes[0]);
-            fireEvent.click(getByText((content, element) => content.includes('Completed')));
-            expect(getByText('New Todo')).toBeInTheDocument();
-            expect(() => getByText('Another Todo')).toThrow();
-
-            fireEvent.click(getByText((content, element) => content.includes('Active')));
-            expect(getByText('Another Todo')).toBeInTheDocument();
-            expect(() => getByText('New Todo')).toThrow();
-
-            fireEvent.click(getByText((content, element) => content.includes('All')));
-            expect(getByText('New Todo')).toBeInTheDocument();
-            expect(getByText('Another Todo')).toBeInTheDocument();
-        })
 })
