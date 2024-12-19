@@ -134,13 +134,14 @@ const TodoContainer = () => {
     setCategories([...categories.filter((category) => category !== name)])
   }
 
-  const addTodoItem = (title) => {
+  const addTodoItem = (title, expiration) => {
     const newTodo = {
       id: uuidv4(),
       title,
       completed: false,
       category: "Unkategorisiert",
-      priority: 0
+      priority: 0,
+      expiration: expiration
     };
     setTodos([...todos, newTodo]);
   };
@@ -161,7 +162,7 @@ const TodoContainer = () => {
     setCategories([...categories, category])
   }
 
-  const setUpdate = (updatedTitle, id) => {
+  const setTitleUpdate = (updatedTitle, id) => {
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
@@ -170,6 +171,19 @@ const TodoContainer = () => {
         return todo;
       })
     );
+  };
+
+  const setExpirationUpdate = (updatedDate, id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.expiration = updatedDate;
+        }
+        return todo;
+      })
+    );
+
+    console.log(todos)
   };
 
   // storing todos items
@@ -214,7 +228,8 @@ const TodoContainer = () => {
           handleCategoryChange={handleToDoCategoryChange}
           handlePriorityChange={handleToDoPriorityChange}
           deleteTodoProps={delTodo}
-          setUpdate={setUpdate}
+          setUpdate={setTitleUpdate}
+          setExpirationUpdate={setExpirationUpdate}
           categories={categories}
           filters={filters}
         />

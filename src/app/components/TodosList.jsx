@@ -16,6 +16,7 @@ export default function TodoList(props) {
               handleToDoPriorityChange={props.handlePriorityChange}
               deleteTodoProps={props.deleteTodoProps}
               setUpdate={props.setUpdate}
+              setExpirationUpdate={props.setExpirationUpdate}
               categories={props.categories}
             />
           ))

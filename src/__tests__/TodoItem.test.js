@@ -7,7 +7,8 @@ const todo = {
   title: 'Test Todo',
   completed: false,
   category: "Unkategorisiert",
-  priority: 0
+  priority: 0,
+  expiration: new Date().toISOString()
 };
 
 const categories = [
@@ -25,6 +26,7 @@ describe('ToDo Item tests', () => {
             handleChangeProps={() => {}}
             deleteTodoProps={() => {}}
             setUpdate={() => {}}
+            setExpirationUpdate={() => {}}
             selectedCategory={todo.category}
             categories={categories}
             handleToDoCategoryChange={() => {}}
@@ -42,6 +44,7 @@ describe('ToDo Item tests', () => {
             handleChangeProps={handleChangeProps}
             deleteTodoProps={() => {}}
             setUpdate={() => {}}
+            setExpirationUpdate={() => {}}
             selectedCategory={todo.category}
             categories={categories}
             handleToDoCategoryChange={() => {}}
@@ -60,6 +63,7 @@ describe('ToDo Item tests', () => {
             handleChangeProps={() => {}}
             deleteTodoProps={deleteTodoProps}
             setUpdate={() => {}}
+            setExpirationUpdate={() => {}}
             selectedCategory={todo.category}
             categories={categories}
             handleToDoCategoryChange={() => {}}
@@ -78,6 +82,7 @@ describe('ToDo Item tests', () => {
             handleChangeProps={() => {}}
             deleteTodoProps={() => {}}
             setUpdate={setUpdate}
+            setExpirationUpdate={() => {}}
             selectedCategory={todo.category}
             categories={categories}
             handleToDoCategoryChange={() => {}}
