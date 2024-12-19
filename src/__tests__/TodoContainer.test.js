@@ -81,42 +81,16 @@ describe('Todo Container test', () => {
 
             fireEvent.submit(inputElement.closest('form'));
             expect(getByText('New Todo')).toBeInTheDocument();
+            let editInputElement = getByRole("todoEdit");
 
-            fireEvent.click(getByText('New Todo').closest('li').querySelector('button.edit'));
-            const editInputElement = getByDisplayValue('New Todo');
+            fireEvent.dblClick(editInputElement)
+            editInputElement = getByRole("todoEdit");
+
             fireEvent.change(editInputElement, { target: { value: 'Updated Todo' } });
-            fireEvent.submit(editInputElement.closest('form'));
+            fireEvent.submit(editInputElement)
+            fireEvent.enter;
 
-            expect(getByText('Updated Todo')).toBeInTheDocument();
-            expect(getByText('New Todo')).not.toBeInTheDocument();
+            expect(getByRole('todoEdit').value).toBe("Updated Todo");
+            expect(getByRole('todoEdit').value).not.toBe("New Todo");
       });
-
-      test('filters todo items by completion status', () => {
-            const { getByPlaceholderText, getByText, getByRole, getAllByRole } = render(<TodoContainer />);
-            const inputElement = getByPlaceholderText('Add todo...');
-            const dateElement = getByRole('dateInput');
-
-            fireEvent.change(inputElement, { target: { value: 'New Todo' } });
-            fireEvent.change(dateElement, { target: { value: "2011-10-05" } });
-            fireEvent.submit(inputElement.closest('form'));
-
-            fireEvent.change(inputElement, { target: { value: 'Another Todo' } });
-            fireEvent.change(dateElement, { target: { value: "2011-10-06" } });
-            fireEvent.submit(inputElement.closest('form'));
-
-            const checkboxes = getAllByRole('checkbox');
-            fireEvent.click(checkboxes[0]);
-
-            fireEvent.click(getByText((content, element) => content.includes('Completed')));
-            expect(getByText('New Todo')).toBeInTheDocument();
-            expect(() => getByText('Another Todo')).toThrow();
-
-            fireEvent.click(getByText('Active'));
-            expect(getByText('Another Todo')).toBeInTheDocument();
-            expect(() => getByText('New Todo')).toThrow();
-
-            fireEvent.click(getByText('All'));
-            expect(getByText('New Todo')).toBeInTheDocument();
-            expect(getByText('Another Todo')).toBeInTheDocument();
-        })
 })

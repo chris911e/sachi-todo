@@ -87,6 +87,7 @@ const TodoItem = (props) => {
               onChange={handleTitleChange}
               onBlur={handleBlur}
               onKeyDown={handleKeyDown}
+              role="todoEdit"
               style={{
                 width: "100%",
                 padding: "5px",
@@ -97,6 +98,7 @@ const TodoItem = (props) => {
           ) : (
             <div
               onDoubleClick={handleDoubleClick}
+              role="todoEdit"
               style={{
                 ...completed ? completedStyle : null,
                 cursor: "pointer"
