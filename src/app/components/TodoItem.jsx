@@ -123,6 +123,7 @@ const TodoItem = (props) => {
               fontSize: "14px",
               borderRadius: "10px",
             }}
+            data-testid={`category-todo-${id}`}
           >
             {props.categories.map((value, key) => {
               return (
