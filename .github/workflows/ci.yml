@@ -14,6 +14,7 @@ permissions:
   checks: write
 
 jobs:
+  # Die Umgebung wird hier aufgesetzt. Dabei werden dependencies installiert und gecached
     setup-environment:
         runs-on: ubuntu-22.04
         steps:
@@ -39,6 +40,7 @@ jobs:
             - name: List directory (debugging)
               run: ls
 
+    # Hier werden die Tests laufen gelassen. Dabei werden die dependencies, die gecached worden sind, aufgerufen und die tests werden ausgeführt. Auch wird ein Test report veröffentlicht.
     run-test:
         runs-on: ubuntu-22.04
         needs: setup-environment
@@ -56,6 +58,7 @@ jobs:
 
             - name: Run Tests
               run: npm run test
+
             - name: Test Report
               uses: dorny/test-reporter@v1
               if: success() || failure()
@@ -65,6 +68,7 @@ jobs:
                 reporter: jest-junit        
       
 
+    # Der linter schaut ob es potenzielle Probleme im code gibt und meldet diese
     lint:
         runs-on: ubuntu-22.04
         needs: setup-environment
@@ -83,6 +87,7 @@ jobs:
             - name: Lint application
               run: npm run lint
 
+    # In diesem prozess wird die Applikation gebaut. Diese wäre dann potenziell bereit dazu published zu werden, nachdem es in die Artifacts abgespeichert worden ist.
     build-app:
         runs-on: ubuntu-22.04
         needs: [lint, run-test]
