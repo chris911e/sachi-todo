@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --ci --testResultsProcessor='jest-junit' --coverage"
+    "test": "jest --ci --testResultsProcessor='jest-junit'",
+    "coverage": "jest --json --coverage --outputFile=report.json"
   },
   "jest-junit": {
     "outputDirectory": "./reports",

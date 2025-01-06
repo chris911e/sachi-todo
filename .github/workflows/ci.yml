@@ -69,8 +69,10 @@ jobs:
             - name: Coverage Report
               uses: ArtiomTr/jest-coverage-report-action@v2
               with:
-                coverage-file: coverage/coverage-final.json
-                # base-coverage-file: ./coverage/master/report.json
+                output: report-markdown
+                annotations: none
+                package-manager: npm
+                test-script: npm run coverage
       
 
     lint:
