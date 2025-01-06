@@ -64,7 +64,10 @@ jobs:
                 name: Sachi ToDo JEST Tests            
                 path: reports/junit.xml    
                 reporter: jest-junit
-                annotations: true      
+                annotations: true   
+
+            - name: Coverage Report
+              uses: ArtiomTr/jest-coverage-report-action@v2
       
 
     lint:
