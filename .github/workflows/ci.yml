@@ -67,12 +67,13 @@ jobs:
                 annotations: true   
 
             - name: Coverage Report
-              uses: ArtiomTr/jest-coverage-report-action@v2
+              uses: dorny/test-reporter@v1
+              if: success() || failure()
               with:
-                output: report-markdown
-                annotations: none
-                package-manager: npm
-                test-script: npm run coverage
+                name: Coverage Report
+                path: reports/coverage-report.xm
+                reporter: jest-junit
+                annotations: true
       
 
     lint:
