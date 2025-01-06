@@ -69,7 +69,8 @@ jobs:
             - name: Coverage Report
               uses: ArtiomTr/jest-coverage-report-action@v2
               with:
-                annotations: failed-tests
+                coverage-file: coverage/coverage-final.json
+                # base-coverage-file: ./coverage/master/report.json
       
 
     lint:
