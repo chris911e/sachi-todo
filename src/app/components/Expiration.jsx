@@ -44,6 +44,7 @@ export default function Expiration(props) {
             {editing ? (
                 <input
                 type="date"
+                role="dateExpiration"
                 value={exDate}
                 onChange={handleDateChange}
                 onBlur={handleBlur}
@@ -56,8 +57,8 @@ export default function Expiration(props) {
                 }}
                 />
             ) : (
-                <div onDoubleClick={handleDoubleClick} >
-                    <p style={{color: getColor(), fontSize: "14px"}}>{getDayByWeekDay(new Date(exDate).getDay())}, {new Date(exDate).getDate()}.{new Date(exDate).getMonth()+1}.{new Date(exDate).getFullYear()}</p>
+                <div onDoubleClick={handleDoubleClick} role="dateExpirationDiv">
+                    <p style={{color: getColor(), fontSize: "14px"}} role="dateExpiration">{getDayByWeekDay(new Date(exDate).getDay())}, {new Date(exDate).getDate()}.{new Date(exDate).getMonth()+1}.{new Date(exDate).getFullYear()}</p>
                 </div>
             )}
         </div>
@@ -83,7 +84,7 @@ function isNowOrPast(dateToCheck) {
     return checkDateFormat < now;
   }
   
-function getDayByWeekDay(id){
+export function getDayByWeekDay(id){
     console.log(id)
     const days = [{id: 1, day: "Monday"}, {id: 2, day: "Tuesday"}, {id: 3, day: "Wednesday"}, {id: 4, day: "Thursday"}, {id: 5, day: "Friday"}, {id: 6, day: "Saturday"}, {id: 0, day: "Sunday"}]
 

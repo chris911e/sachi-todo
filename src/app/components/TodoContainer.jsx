@@ -11,6 +11,7 @@ import Image from "next/image";
 import FilterModal from "./FilterModal";
 import filterAdd from "./assets/filterAdd.svg"
 import filterTick from "./assets/filterTick.svg"
+import { sortTodos } from "./utils/sortTodo";
 
 const TodoContainer = (props) => {
   const severities = ["Low", "Medium", "High"];
@@ -48,9 +49,13 @@ const TodoContainer = (props) => {
       
       return isPriorityMatch && isCategoryMatch;
     });
-    setFilteredTodos(filteredTodos);
+
+    const sortedTodos = sortTodos(filteredTodos, filters.expiration)
+    setFilteredTodos(sortedTodos);
+
     console.log(filters)
   }, [filters, todos])
+
 
   const getInitialTodos = () => {
     const temp = localStorage.getItem("todos");
