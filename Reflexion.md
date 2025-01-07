@@ -8,7 +8,7 @@
 Während des Projekts sind diverse Punkte gut gelungen. Ein grosser positiver Aspekt war die Entwicklung selbst - bei der Implementierung, beziehungsweise Erweiterung der ToDo-App gab es wenige bis zu keine Probleme. Ebenfalls bei der Entwicklung der Tests begegnete ich keine App-Breaking Problemen und konnte relativ reibungslos programmieren. Mit dem Endprodukt bin ich auch sehr zufrieden, da wir alles erledigt haben was wir vorhatten.
 
 ### 2. Herausforderungen
-Wie im Punkt "Erfolge" bereits erläutert, stiess ich nicht an grossen Problemen. Teilweise hatte ich Schwierigkeiten herauszufinden welche Methoden für Testing Best-Practice sind, da ich redudante/unnötige Funktionen vermeiden wollte. Eine weitere kleine Herausforderung war, war das Mocking - next/image kann nicht mit Jest problemlos zusammenarbeiten kann, weil es ein server-component ist.
+Wie im Punkt "Erfolge" bereits erläutert, stiess ich nicht an grossen Problemen. Teilweise hatte ich Schwierigkeiten herauszufinden welche Methoden für Testing Best-Practice sind, da ich redudante/unnötige Funktionen vermeiden wollte. Eine weitere kleine Herausforderung war, war das Mocking - next/image kann nicht mit Jest problemlos zusammenarbeiten, weil es ein server-component ist.
 
 ### 3. Erkenntnisse
 - Wie Mocking genau funktioniert
