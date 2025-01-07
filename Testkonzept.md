@@ -78,7 +78,12 @@ Es ist die Grundebene, also die 1. Ebene der Testpyramide.
 ### Component testing
 Beim Component testing, wird das Zusammenspiel einer Komponente getestet. Anders als beim Unit Testing, wo einzelne Funktionen oder Methoden isoliert betrachtet werden, testet Component Testing die gesamte Komponente einschliesslich ihrer internen Abhängigkeiten.
 
-Das Ziel ist es, sicherzustellen, dass die Komponente wie spezifiziert funktioniert, bevor sie in das Gesamtsystem integriert wird. Dabei werden häufig Test-Daten und -Umgebungen genutzt, die den realen Einsatzbedingungen ähneln. Component Testing kann sowohl isoliert als auch mit simulierten Abhängigkeiten durchgeführt werden.
+Das Ziel ist es, sicherzustellen, dass die Komponente wie spezifiziert funktioniert, bevor sie in das Gesamtsystem integriert wird. Dabei werden häufig Test-Daten und -Umgebungen genutzt, die den realen Einsatzbedingungen ähneln. Component Testing kann sowohl isoliert als auch mit simulierten Abhängigkeiten durchgeführt werden. Es befindet sich in der 2. Ebene der Testpyramide.
+
+### Integration testing
+Integration Testing überprüft das Zusammenspiel mehrerer Komponenten oder Module einer Anwendung, um sicherzustellen, dass sie wie erwartet zusammenarbeiten. Im Gegensatz zu Unit Testing liegt der Fokus hier darauf, Abhängigkeiten zwischen Modulen oder Systemen zu testen.
+
+Dabei werden Datenflüsse, Schnittstellen und Interaktionen getestet, um mögliche Probleme wie Inkonsistenzen oder Fehlkommunikationen frühzeitig zu erkennen. Häufig werden dafür reale oder simulierte Umgebungen genutzt, um die Zusammenarbeit der Komponenten unter möglichst realistischen Bedingungen zu überprüfen.
 
 ## 5. Testfallerstellung
 **Vorgehen:**
