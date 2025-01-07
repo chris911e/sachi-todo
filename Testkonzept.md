@@ -67,6 +67,14 @@
 - Zusammenarbeit von Modulen (Integrationstests).
 - Validierung der Einzelkomponenten (Componenttests)
 
+<img width="647" alt="image" src="https://github.com/user-attachments/assets/895792ab-9b1c-44b0-bcd3-c7187204d582" />
+<br />
+Die verwendeten Testarten ordnen sich in den unteren 3 Ebenen der Testpyramide ein.
+
+### Unit testing
+Bei Unit testing, werden einzelne, isolierte Komponenten in einer Anwendung getestet. Das sind meist Funktionen, Methoden oder Klassen. Das Ziel bei dieser Art ist es, die Software in ihren Einzelteilen zu testen, dabei ist wichtig zu beachten, dass die zu testende Komponente keine Abhängigkeiten zu anderne System oder Komponenten hat, sondern nur isoliert getestet wird. Dabei setzt man den Fokus auf die Funktionalität und nicht das ganze System. Dadurch kann jede Funktionalität präzise getestet werden.
+
+
 ## 5. Testfallerstellung
 **Vorgehen:**
 - Ableitung der Testfälle aus den Anforderungen und Akzeptanzkriterien.
