@@ -72,8 +72,13 @@
 Die verwendeten Testarten ordnen sich in den unteren 3 Ebenen der Testpyramide ein.
 
 ### Unit testing
-Bei Unit testing, werden einzelne, isolierte Komponenten in einer Anwendung getestet. Das sind meist Funktionen, Methoden oder Klassen. Das Ziel bei dieser Art ist es, die Software in ihren Einzelteilen zu testen, dabei ist wichtig zu beachten, dass die zu testende Komponente keine Abhängigkeiten zu anderne System oder Komponenten hat, sondern nur isoliert getestet wird. Dabei setzt man den Fokus auf die Funktionalität und nicht das ganze System. Dadurch kann jede Funktionalität präzise getestet werden.
+Bei Unit testing, werden einzelne, isolierte Komponenten einer Anwendung getestet. Das sind meist Funktionen, Methoden oder Klassen. Das Ziel bei dieser Art ist es, die Software in ihren Einzelteilen zu testen, dabei ist wichtig zu beachten, dass die zu testende Komponente keine Abhängigkeiten zu anderne System oder Komponenten hat, sondern nur isoliert getestet wird. Dabei setzt man den Fokus auf die Funktionalität und nicht das ganze System. Dadurch kann jede Funktionalität präzise getestet werden.
+Es ist die Grundebene, also die 1. Ebene der Testpyramide.
 
+### Component testing
+Beim Component testing, wird das Zusammenspiel einer Komponente getestet. Anders als beim Unit Testing, wo einzelne Funktionen oder Methoden isoliert betrachtet werden, testet Component Testing die gesamte Komponente einschliesslich ihrer internen Abhängigkeiten.
+
+Das Ziel ist es, sicherzustellen, dass die Komponente wie spezifiziert funktioniert, bevor sie in das Gesamtsystem integriert wird. Dabei werden häufig Test-Daten und -Umgebungen genutzt, die den realen Einsatzbedingungen ähneln. Component Testing kann sowohl isoliert als auch mit simulierten Abhängigkeiten durchgeführt werden.
 
 ## 5. Testfallerstellung
 **Vorgehen:**
