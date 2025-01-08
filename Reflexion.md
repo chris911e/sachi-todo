@@ -3,6 +3,9 @@
 - **Projekt:** SachiToDo
 - **Teammitglieder:** Christopher Scheel, Shansai Muraleetharan
 
+## Gruppenreflexion
+Wir haben als Gruppe alle unsere Ziele erfüllen können. Als Gruppe sind wir definitiv zufrieden mit dem Ergebnis, speziell als eine Gruppe, die Frontendentwicklung nicht so gern hat, konnten wir uns gut schlagen. 
+
 ## Christopher Scheel
 ### 1. Erfolge
 Während des Projekts sind diverse Punkte gut gelungen. Ein grosser positiver Aspekt war die Entwicklung selbst - bei der Implementierung, beziehungsweise Erweiterung der ToDo-App gab es wenige bis zu keine Probleme. Ebenfalls bei der Entwicklung der Tests begegnete ich keine App-Breaking Problemen und konnte relativ reibungslos programmieren. Mit dem Endprodukt bin ich auch sehr zufrieden, da wir alles erledigt haben was wir vorhatten.
