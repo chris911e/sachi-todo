@@ -85,10 +85,10 @@ Führt die Tests der Anwendung aus, erstellt Berichte und überprüft die Funkti
 4. **Run Cypress Tests**
    Führt alle Cypress tests durch, indem das Projekt neu gebuilded und gestartet wird.
    ```yaml
-	uses: cypress-io/github-action@v6
-   	with:
-   	   build: npm run build
-     	   start: npm run dev
+   uses: cypress-io/github-action@v6
+   with:
+     build: npm run build
+     start: npm run dev
    ```
    
 
