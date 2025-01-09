@@ -115,6 +115,4 @@ jobs:
               continue-on-error: false
               with:
                 name: TodoApp
-                path: .next
-
-  
+                path: .next/
