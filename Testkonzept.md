@@ -94,48 +94,37 @@ Dabei werden Datenflüsse, Schnittstellen und Interaktionen getestet, um möglic
 
 ## 6. Testfälle
 
-**Testfälle für allgemeine Funktionen**
-| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 |
-|-------------|--------------------------------------------|-------------------------------------|
-| TC001       | Valides Input beim Hinzufügen eines ToDos  | ToDo wird erfolgreich hinzugefügt  |
-| TC002       | Fehlermeldung beim leerem Input eines ToDos | Fehlermeldung wird angezeigt       |
-| TC003       | Anzeige von ToDo-Komponenten               | ToDo-Liste wird korrekt angezeigt  |
-| TC004       | Edit-Modus für ToDo                       | ToDo kann bearbeitet werden        |
-| TC005       | ToDo hinzufügen                           | Neues ToDo wird zur Liste hinzugefügt |
-| TC006       | ToDo löschen                              | ToDo wird aus der Liste entfernt   |
-| TC007       | ToDo als erledigt markieren                | ToDo wird als "vollständig" angezeigt |
-| TC008       | ToDo editieren                             | ToDo wird aktualisiert             |
-| TC009       | ToDo anzeigen                              | Details des ToDos werden korrekt angezeigt |
-
----
-
 **Testfälle für Kategorien**
-| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 |
-|-------------|--------------------------------------------|-------------------------------------|
-| TC010       | Korrekte Anzeige von Kategorie eines ToDos | Kategorie wird korrekt dargestellt |
-| TC011       | Aktiver Kategoriefilter in ToDo-Liste      | ToDos der aktiven Kategorie werden angezeigt |
-| TC012       | Kategoriefilter setzen                     | Filter wird erfolgreich angewendet |
-| TC013       | Kategorie hinzufügen                      | Neue Kategorie wird erstellt       |
-| TC014       | Kategorie löschen                         | Kategorie wird entfernt            |
+
+| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 | Ausgeführt von | Status | Kommentar |
+|-------------|--------------------------------------------|-------------------------------------|----------------|--------|-----------|
+| TC010       | Korrekte Anzeige von Kategorie eines ToDos | Kategorie wird korrekt dargestellt | CI-Pipeline       | PASS   | keine     |
+| TC011       | Aktiver Kategoriefilter in ToDo-Liste      | ToDos der aktiven Kategorie werden angezeigt | CI-Pipeline | PASS   | keine     |
+| TC012       | Kategoriefilter setzen                     | Filter wird erfolgreich angewendet | CI-Pipeline       | PASS   | keine     |
+| TC013       | Kategorie hinzufügen                      | Neue Kategorie wird erstellt       | CI-Pipeline       | PASS   | keine     |
+| TC014       | Kategorie löschen                         | Kategorie wird entfernt            | CI-Pipeline       | PASS   | keine     |
 
 ---
 
 **Testfälle für Fälligkeitsdatum**
-| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 |
-|-------------|--------------------------------------------|-------------------------------------|
-| TC015       | Korrekte Farbe von Fälligkeitsdatum gemäss Datum | Farbe ändert sich basierend auf Fälligkeit |
-| TC016       | Sortieren der ToDos nach Fälligkeitsdatum   | ToDos sind korrekt sortiert        |
-| TC017       | Fälligkeitsdatum editieren                 | Datum wird erfolgreich aktualisiert |
-| TC018       | Datum-Funktion für Konvertierung          | Datum wird korrekt konvertiert     |
+
+| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 | Ausgeführt von | Status | Kommentar |
+|-------------|--------------------------------------------|-------------------------------------|----------------|--------|-----------|
+| TC015       | Korrekte Farbe von Fälligkeitsdatum gemäss Datum | Farbe ändert sich basierend auf Fälligkeit | CI-Pipeline       | PASS   | keine     |
+| TC016       | Sortieren der ToDos nach Fälligkeitsdatum   | ToDos sind korrekt sortiert        | CI-Pipeline       | PASS   | keine     |
+| TC017       | Fälligkeitsdatum editieren                 | Datum wird erfolgreich aktualisiert | CI-Pipeline       | PASS   | keine     |
+| TC018       | Datum-Funktion für Konvertierung          | Datum wird korrekt konvertiert     | CI-Pipeline       | PASS   | keine     |
 
 ---
 
 **Testfälle für Priorität**
-| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 |
-|-------------|--------------------------------------------|-------------------------------------|
-| TC019       | Korrekte Anzeige von Priorität eines ToDos | Priorität wird korrekt dargestellt |
-| TC020       | Aktiver Prioritätsfilter in ToDo-Liste     | ToDos der aktiven Priorität werden angezeigt |
-| TC021       | Prioritätsfilter setzen                    | Filter wird erfolgreich angewendet |
+
+| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 | Ausgeführt von | Status | Kommentar |
+|-------------|--------------------------------------------|-------------------------------------|----------------|--------|-----------|
+| TC019       | Korrekte Anzeige von Priorität eines ToDos | Priorität wird korrekt dargestellt | CI-Pipeline       | PASS   | keine     |
+| TC020       | Aktiver Prioritätsfilter in ToDo-Liste     | ToDos der aktiven Priorität werden angezeigt | CI-Pipeline | PASS   | keine     |
+| TC021       | Prioritätsfilter setzen                    | Filter wird erfolgreich angewendet | CI-Pipeline       | PASS   | keine     |
+
 
 ## 7. Fehlerbehandlung
 **Prozess:**
