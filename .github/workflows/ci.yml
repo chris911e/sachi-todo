@@ -1,4 +1,4 @@
-name: CI Pipeline (PR-Check)
+name: CI + Artifact Creation
 
 on:
     push:
@@ -112,9 +112,9 @@ jobs:
               
             - name: Upload Artifact
               uses: actions/upload-artifact@v4
+              continue-on-error: false
               with:
                 name: TodoApp
-                path: ./dist
-              continue-on-error: false
+                path: .next
 
   
