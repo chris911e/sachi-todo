@@ -3,7 +3,9 @@ import TodoItem from "./TodoItem";
 
 export default function TodoList(props) {
   return (
-    <ul data-testid="todo-list">
+    <ul
+      data-testid="todo-list"
+    >
       {
         props.todos.length > 0 ? (
           props.todos.map((todo) => (

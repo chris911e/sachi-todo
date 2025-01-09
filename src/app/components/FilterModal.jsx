@@ -57,6 +57,7 @@ export default function FilterModal(props) {
                 display: "flex",
                 justifyContent: "flex-start"
             }}
+            data-test="hide-filter-modal"
         >
             <div
                 onClick={(e) => e.stopPropagation()}
@@ -121,6 +122,7 @@ export default function FilterModal(props) {
                                                         fontWeight: priority === props.filters.priority ? "bold" : "normal"
                                                     }}
                                                     className="unselectable"
+                                                    data-test={`priority-${priority}`}
                                                 >
                                                     {priority}
                                                 </div>
@@ -140,6 +142,7 @@ export default function FilterModal(props) {
                                 cursor: "pointer",
                                 fontSize: "20px"
                             }}
+                            data-testid="expiration-filter"
                         >
                             <Image src={showExpiration ? minus : plus} alt="" height={30} width={30} />
                             Expiration
@@ -162,6 +165,7 @@ export default function FilterModal(props) {
                                                         fontWeight: expiration === props.filters.expiration ? "bold" : "normal"
                                                     }}
                                                     className="unselectable"
+                                                    data-test={`expiration-${expiration}`}
                                                 >
                                                     {expiration}
                                                 </div>
@@ -206,6 +210,7 @@ export default function FilterModal(props) {
                                                         cursor: "pointer",
                                                         fontWeight: category === props.filters.category ? "bold" : "normal"
                                                     }}
+                                                    data-test={`category-${category}`}
                                                 >
                                                     {category}
                                                 </div>

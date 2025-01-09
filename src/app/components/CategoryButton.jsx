@@ -93,6 +93,7 @@ export default function CategoryButton(props) {
                                         }}
                                         onKeyDown={handleCategoryEnter}
                                         maxLength={15}
+                                        data-test="category-input"
                                     />
                                     <button
                                         style={{
@@ -107,14 +108,17 @@ export default function CategoryButton(props) {
                                     </button>
                                 </div>
                             </div>
-                            <div style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                gap: 15,
-                                backgroundColor: "whitesmoke",
-                                padding: "15px",
-                                borderRadius: "10px"
-                            }}>
+                            <div 
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    gap: 15,
+                                    backgroundColor: "whitesmoke",
+                                    padding: "15px",
+                                    borderRadius: "10px"
+                                }}
+                                data-test="category-list"
+                            >
                                 {
                                     props.categories.length > 1 ? (
                                         props.categories.map((category, key) => {

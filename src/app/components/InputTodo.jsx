@@ -42,6 +42,7 @@ const InputTodo = (props) => {
         value={inputText.title}
         name="title"
         onChange={onChange}
+        data-test="todo-input"
       />
       <input
         type="date"
@@ -51,8 +52,13 @@ const InputTodo = (props) => {
         value={inputText.expiration}
         name="expiration"
         onChange={onChange}
+        data-test="todo-expiration"
       />
-      <button data-set="add-todo-btn" className="input-submit">
+      <button
+        data-set="add-todo-btn"
+        className="input-submit"
+        data-test="todo-button"
+      >
         <FaPlusCircle />
       </button>
     </form>
