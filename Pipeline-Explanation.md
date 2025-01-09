@@ -77,14 +77,23 @@ Führt die Tests der Anwendung aus, erstellt Berichte und überprüft die Funkti
        ${{ runner.os }}-node-modules-
    ```
 
-3. **Run Tests**  
+3. **Run Jest Tests**  
    Führt die Tests mittels `npm run test` aus.  
    ```yaml
    run: npm run test
    ```
+4. **Run Cypress Tests**
+   Führt alle Cypress tests durch, indem das Projekt neu gebuilded und gestartet wird.
+   ```yaml
+   uses: cypress-io/github-action@v6
+   with:
+     build: npm run build
+     start: npm run dev
+   ```
+   
 
-4. **Test Report**  
-   Generiert einen Testbericht im `JUnit`-Format und veröffentlicht ihn.  
+6. **Test Report**  
+   Generiert einen Testbericht im XML-Format und veröffentlicht ihn.  
    ```yaml
    uses: dorny/test-reporter@v1
    with:
@@ -185,6 +194,3 @@ Die Pipeline stellt sicher, dass:
 1. **Code Qualität:** Durch Tests und Linting überprüft wird.
 2. **Effizienz:** Durch Caching von Abhängigkeiten Zeit gespart wird.
 3. **Verlässlichkeit:** Der Build wird als Artefakt gespeichert und kann für die Veröffentlichung verwendet werden.
-
-Diese Schritte garantieren, dass nur qualitativ hochwertiger und funktionierender Code in den Hauptzweig (`main`) integriert wird.
-

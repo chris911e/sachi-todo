@@ -59,6 +59,12 @@ jobs:
             - name: Run Tests
               run: npm run test
 
+            - name: Cypress run
+              uses: cypress-io/github-action@v6
+              with:
+                build: npm run build
+                start: npm run dev
+
             - name: Test Report
               uses: dorny/test-reporter@v1
               if: success() || failure()
