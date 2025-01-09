@@ -28,7 +28,7 @@ describe('tests todo manipulation', () => {
       .should('eq', 'medium')
   })
 
-  it('should allow editing the expiration date', () => {
+  it('should edit expiration date', () => {
     cy.get('[data-test="expiration-div"]').dblclick();
     cy.get('[data-test="expiration-input"]').should('be.visible');
 
