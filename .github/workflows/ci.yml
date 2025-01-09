@@ -58,10 +58,9 @@ jobs:
 
             - name: Run Tests
               run: npm run test
-              
-            - uses: cypress-io/github-action@v6
-              with:
-                  browser: edge
+
+            - name: Cypress run
+              uses: cypress-io/github-action@v6
 
             - name: Test Report
               uses: dorny/test-reporter@v1
