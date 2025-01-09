@@ -112,7 +112,9 @@ jobs:
               
             - name: Upload Artifact
               uses: actions/upload-artifact@v4
-              continue-on-error: false
+              if: failure()
               with:
                 name: TodoApp
-                path: .next/
+                path: .next
+                if-no-files-found: error
+                retention-days: 15
