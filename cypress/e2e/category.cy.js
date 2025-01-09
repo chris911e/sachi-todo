@@ -1,6 +1,6 @@
 const { within } = require("@testing-library/dom");
 
-describe('template spec', () => {
+describe('tests category manipulation', () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000");
     cy.get('[data-testid="category-button"]').click();
