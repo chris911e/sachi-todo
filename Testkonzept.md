@@ -93,37 +93,62 @@ Dabei werden Datenflüsse, Schnittstellen und Interaktionen getestet, um möglic
 **Beispiele:**
 
 ## 6. Testfälle
+### **Testfälle Todo**
 
-**Testfälle für Kategorien**
+| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 | Ausgeführt von | Test Art | Status | Kommentar |
+|-------------|--------------------------------------------|-------------------------------------|----------------|----------|--------|-----------|
+| TC001       | ToDo löschen                              | ToDo wird aus der Liste entfernt   | CI-Pipeline    |   E2E-Test       | PASS   | keine     |
+| TC002       | ToDo als erledigt markieren                | ToDo wird als "vollständig" angezeigt | CI-Pipeline    |   E2E-Test       | PASS   | keine     |
+| TC003       | ToDo hinzufügen                           | Neues ToDo wird zur Liste hinzugefügt | CI-Pipeline    |   E2E-Test       | PASS   | keine     |
+| TC004       | Valides Input beim Hinzufügen eines ToDos  | ToDo wird erfolgreich hinzugefügt  | CI-Pipeline    |   Integration-Test       | PASS   | keine     |
+| TC005       | ToDo hinzufügen                           | Neues ToDo wird zur Liste hinzugefügt | CI-Pipeline    |   Integration-Test       | PASS   | keine     |
+| TC006       | ToDo löschen                              | ToDo wird aus der Liste entfernt   | CI-Pipeline    |   Integration-Test       | PASS   | keine     |
+| TC007       | ToDo editieren                             | ToDo wird aktualisiert             | CI-Pipeline    |   Component-Test       | PASS   | keine     |
+| TC008       | ToDo anzeigen                              | Details des ToDos werden korrekt angezeigt | CI-Pipeline    |  Component-Test        | PASS   | keine     |
+| TC009       | Fehlermeldung beim leerem Input eines ToDos | Fehlermeldung wird angezeigt       | CI-Pipeline    |  Component-Test        | PASS   | keine     |
+| TC010       | Anzeige von ToDo-Komponenten               | ToDo-Liste wird korrekt angezeigt  | CI-Pipeline    |   Component-Test       | PASS   | keine     |
+| TC011       | Edit-Modus für ToDo                       | ToDo kann bearbeitet werden        | CI-Pipeline    |   Component-Test       | PASS   | keine     |
+| TC012       | ToDo als erledigt markieren                | ToDo wird als "vollständig" angezeigt | CI-Pipeline    |   Component-Test       | PASS   | keine     |
 
-| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 | Ausgeführt von | Status | Kommentar |
-|-------------|--------------------------------------------|-------------------------------------|----------------|--------|-----------|
-| TC010       | Korrekte Anzeige von Kategorie eines ToDos | Kategorie wird korrekt dargestellt | CI-Pipeline       | PASS   | keine     |
-| TC011       | Aktiver Kategoriefilter in ToDo-Liste      | ToDos der aktiven Kategorie werden angezeigt | CI-Pipeline | PASS   | keine     |
-| TC012       | Kategoriefilter setzen                     | Filter wird erfolgreich angewendet | CI-Pipeline       | PASS   | keine     |
-| TC013       | Kategorie hinzufügen                      | Neue Kategorie wird erstellt       | CI-Pipeline       | PASS   | keine     |
-| TC014       | Kategorie löschen                         | Kategorie wird entfernt            | CI-Pipeline       | PASS   | keine     |
+
+### **Testfälle für Kategorien**
+
+| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 | Ausgeführt von | Test-Art       | Status | Kommentar |
+|-------------|--------------------------------------------|-------------------------------------|----------------|--------|--------|-----------|
+| TC013       | Kategorie hinzufügen                      | Neue Kategorie wird erstellt       | CI-Pipeline    |   E2E-Test     | PASS   | keine     |
+| TC014       | Kategorie löschen                         | Kategorie wird entfernt            | CI-Pipeline    |  E2E-Test      | PASS   | keine     |
+| TC015       | Kategoriefilter setzen                     | Filter wird erfolgreich angewendet | CI-Pipeline    |   E2E-Test     | PASS   | keine     |
+| TC016       | Kategorie ändern                         | Kategorie wird geändert            | CI-Pipeline    |  E2E-Test      | PASS   | keine     |
+| TC017       | Korrekte Anzeige von Kategorie eines ToDos | Kategorie wird korrekt dargestellt | CI-Pipeline    |  Integration-Test      | PASS   | keine     |
+| TC018       | Aktiver Kategoriefilter in ToDo-Liste      | ToDos der aktiven Kategorie werden angezeigt | CI-Pipeline    |  Integration-Test      | PASS   | keine     |
+| TC019       | Kategoriefilter setzen                     | Filter wird erfolgreich angewendet | CI-Pipeline    |   Integration-Test     | PASS   | keine     |
+| TC020       | Kategorie hinzufügen                      | Neue Kategorie wird erstellt       | CI-Pipeline    |   Integration-Test     | PASS   | keine     |
+| TC021       | Kategorie löschen                         | Kategorie wird entfernt            | CI-Pipeline    |  Integration-Test      | PASS   | keine     |
 
 ---
 
-**Testfälle für Fälligkeitsdatum**
+### **Testfälle für Fälligkeitsdatum**
 
-| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 | Ausgeführt von | Status | Kommentar |
-|-------------|--------------------------------------------|-------------------------------------|----------------|--------|-----------|
-| TC015       | Korrekte Farbe von Fälligkeitsdatum gemäss Datum | Farbe ändert sich basierend auf Fälligkeit | CI-Pipeline       | PASS   | keine     |
-| TC016       | Sortieren der ToDos nach Fälligkeitsdatum   | ToDos sind korrekt sortiert        | CI-Pipeline       | PASS   | keine     |
-| TC017       | Fälligkeitsdatum editieren                 | Datum wird erfolgreich aktualisiert | CI-Pipeline       | PASS   | keine     |
-| TC018       | Datum-Funktion für Konvertierung          | Datum wird korrekt konvertiert     | CI-Pipeline       | PASS   | keine     |
+| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 | Ausgeführt von |  Test-Art      | Status | Kommentar |
+|-------------|--------------------------------------------|-------------------------------------|----------------|--------|--------|-----------|
+| TC026       | Fälligkeitsdatumfilter setzen                    | Filter wird erfolgreich angewendet | CI-Pipeline    |   E2E-Test     | PASS   | 
+| TC027       | Fälligkeitsdatum ändern                         | Fälligkeitsdatum wird geändert            | CI-Pipeline    |  E2E-Test      | PASS   | keine     |keine     |
+| TC028       | Fälligkeitsdatum editieren                 | Datum wird erfolgreich aktualisiert | CI-Pipeline    |  Integration-Test      | PASS   | keine     |
+| TC029       | Korrekte Farbe von Fälligkeitsdatum gemäss Datum | Farbe ändert sich basierend auf Fälligkeit | CI-Pipeline    |  Component-Test      | PASS   | keine     |
+| TC030       | Datum-Funktion für Konvertierung          | Datum wird korrekt konvertiert     | CI-Pipeline    |   Unit-Test     | PASS   | keine     |
+| TC031       | Sortieren der ToDos nach Fälligkeitsdatum   | ToDos sind korrekt sortiert        | CI-Pipeline    |   Unit-Test     | PASS   | keine     |
 
 ---
 
-**Testfälle für Priorität**
+### **Testfälle für Priorität**
 
-| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 | Ausgeführt von | Status | Kommentar |
-|-------------|--------------------------------------------|-------------------------------------|----------------|--------|-----------|
-| TC019       | Korrekte Anzeige von Priorität eines ToDos | Priorität wird korrekt dargestellt | CI-Pipeline       | PASS   | keine     |
-| TC020       | Aktiver Prioritätsfilter in ToDo-Liste     | ToDos der aktiven Priorität werden angezeigt | CI-Pipeline | PASS   | keine     |
-| TC021       | Prioritätsfilter setzen                    | Filter wird erfolgreich angewendet | CI-Pipeline       | PASS   | keine     |
+| Testfall-ID | Beschreibung                                | Erwartetes Ergebnis                 | Ausgeführt von |   Test-Art     | Status | Kommentar |
+|-------------|--------------------------------------------|-------------------------------------|----------------|--------|--------|-----------|
+| TC032       | Prioritätsfilter setzen                    | Filter wird erfolgreich angewendet | CI-Pipeline    |   E2E-Test     | PASS   | keine     |
+| TC033       | Priorität ändern                         | Priorität wird geändert            | CI-Pipeline    |  E2E-Test      | PASS   | keine     |
+| TC034       | Prioritätsfilter setzen                    | Filter wird erfolgreich angewendet | CI-Pipeline    |   Integration-Test     | PASS   | keine     |
+| TC035       | Aktiver Prioritätsfilter in ToDo-Liste     | ToDos der aktiven Priorität werden angezeigt | CI-Pipeline    |  Integration-Test      | PASS   | keine     |
+| TC036       | Korrekte Anzeige von Priorität eines ToDos | Priorität wird korrekt dargestellt | CI-Pipeline    |  Component-Test      | PASS   | keine     |
 
 
 ## 7. Fehlerbehandlung
