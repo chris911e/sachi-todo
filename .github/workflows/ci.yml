@@ -1,4 +1,4 @@
-name: CI Pipeline (PR-Check)
+name: CI + Artifact Creation
 
 on:
     push:
@@ -102,6 +102,19 @@ jobs:
                   key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
                   restore-keys: |
                     ${{ runner.os }}-node-modules-
+                
 
             - name: Build Application
               run: npm run build
+            
+            - name: List directory (debugging)
+              run: ls -la
+              
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: TodoApp
+                path: .next
+                include-hidden-files: true
+                if-no-files-found: error
+                retention-days: 15
