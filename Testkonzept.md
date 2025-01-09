@@ -85,6 +85,11 @@ Integration Testing überprüft das Zusammenspiel mehrerer Komponenten oder Modu
 
 Dabei werden Datenflüsse, Schnittstellen und Interaktionen getestet, um mögliche Probleme wie Inkonsistenzen oder Fehlkommunikationen frühzeitig zu erkennen. Häufig werden dafür reale oder simulierte Umgebungen genutzt, um die Zusammenarbeit der Komponenten unter möglichst realistischen Bedingungen zu überprüfen.
 
+### E2E testing
+End-to-End Testing (E2E Testing) überprüft das Verhalten einer gesamten Anwendung, um sicherzustellen, dass alle Komponenten zusammen wie erwartet funktionieren und die Anwendung als Ganzes korrekt arbeitet. Der Fokus liegt darauf, den gesamten Arbeitsablauf eines Benutzers zu simulieren und zu testen, vom Start bis zum Ende, einschließlich aller externen Systeme und Datenbanken.
+
+Dabei wird die Anwendung aus der Perspektive des Benutzers getestet, indem typische Benutzerinteraktionen, wie das Ausfüllen von Formularen, Navigieren und das Prüfen von Ergebnissen, durchgeführt werden. Ziel ist es, sicherzustellen, dass die Anwendung in einer realen Umgebung nahtlos funktioniert und keine kritischen Fehler auftreten, die die Benutzererfahrung beeinträchtigen.
+
 ## 5. Testfallerstellung
 **Vorgehen:**
 - Ableitung der Testfälle aus den Anforderungen und Akzeptanzkriterien.
@@ -110,6 +115,7 @@ Dabei werden Datenflüsse, Schnittstellen und Interaktionen getestet, um möglic
 | TC011       | Edit-Modus für ToDo                       | ToDo kann bearbeitet werden        | CI-Pipeline    |   Component-Test       | PASS   | keine     |
 | TC012       | ToDo als erledigt markieren                | ToDo wird als "vollständig" angezeigt | CI-Pipeline    |   Component-Test       | PASS   | keine     |
 
+---
 
 ### **Testfälle für Kategorien**
 
