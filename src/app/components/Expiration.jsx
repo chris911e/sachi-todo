@@ -55,9 +55,10 @@ export default function Expiration(props) {
                     borderRadius: "5px",
                     fontSize: "14px",
                 }}
-                />
+                data-test="expiration-input"
+              />
             ) : (
-                <div onDoubleClick={handleDoubleClick} role="dateExpirationDiv">
+                <div onDoubleClick={handleDoubleClick} role="dateExpirationDiv" data-test="expiration-div">
                     <p style={{color: getColor(), fontSize: "14px"}} role="dateExpiration">{getDayByWeekDay(new Date(exDate).getDay())}, {new Date(exDate).getDate()}.{new Date(exDate).getMonth()+1}.{new Date(exDate).getFullYear()}</p>
                 </div>
             )}

@@ -71,6 +71,7 @@ const TodoItem = (props) => {
             checked={completed}
             onChange={() => props.handleChangeProps(id)}
             name="checkbox"
+            data-test="todo-checkbox"
           />
           <Priority
             priority={priority}
@@ -103,6 +104,7 @@ const TodoItem = (props) => {
                 ...completed ? completedStyle : null,
                 cursor: "pointer"
               }}
+              data-test="todo-edit"
             >
               {title}
             </div>
@@ -126,6 +128,7 @@ const TodoItem = (props) => {
               borderRadius: "10px",
             }}
             data-testid={`category-todo-${id}`}
+            data-test="category-select"
           >
             {props.categories.map((value, key) => {
               return (
@@ -144,6 +147,7 @@ const TodoItem = (props) => {
           <button
             data-set="delete-todo-btn"
             onClick={() => props.deleteTodoProps(id)}
+            data-test="delete-todo"
           >
             <FaTrash style={{ color: "orangered", fontSize: "16px" }} />
           </button>
