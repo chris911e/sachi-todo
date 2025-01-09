@@ -108,7 +108,7 @@ jobs:
               run: npm run build
             
             - name: List directory (debugging)
-              run: ls
+              run: ls -la
               
             - name: Upload Artifact
               uses: actions/upload-artifact@v4
