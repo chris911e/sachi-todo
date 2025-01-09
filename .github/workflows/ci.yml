@@ -102,6 +102,14 @@ jobs:
                   key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
                   restore-keys: |
                     ${{ runner.os }}-node-modules-
+                
 
             - name: Build Application
               run: npm run build
+    
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: TodoApp
+                path: ./dist
+  
