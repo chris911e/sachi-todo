@@ -95,8 +95,6 @@ Dabei wird die Anwendung aus der Perspektive des Benutzers getestet, indem typis
 - Ableitung der Testfälle aus den Anforderungen und Akzeptanzkriterien.
 - Priorisierung von Testfällen basierend auf Risiko und Nutzungshäufigkeit.
 
-**Beispiele:**
-
 ## 6. Testfälle
 ### **Testfälle Todo**
 
